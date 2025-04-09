@@ -14,24 +14,27 @@
       color: #000000;
     }
     .top-bar {
-      background-color: #e0b100;
-      padding: 2rem 1rem 3.5rem;
-      position: relative;
-    }
-    header {
-      background-color: #000000;
-      height: 3.5rem;
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
-      padding: 0 1rem;
-    }
-    .logo-container {
-      position: absolute;
-      top: calc(100% - 30px);
-      left: 1rem;
-      z-index: 2;
-    }
+  background-color: #e0b100;
+  padding: 1rem 1rem 2rem; /* less bottom padding */
+  position: relative;
+}
+
+header {
+  background-color: #000000;
+  height: 4rem; /* give space for logo to sit halfway */
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0 1rem;
+}
+
+.logo-container {
+  position: absolute;
+  top: 100%; /* push it to sit below yellow */
+  transform: translateY(-50%); /* bring halfway into black */
+  left: 1rem;
+  z-index: 2;
+}
     .logo-container img {
       height: 60px;
     }
