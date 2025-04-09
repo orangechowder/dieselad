@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,12 +15,12 @@
     }
     .top-bar {
       background-color: #e0b100;
-      padding: 2rem 1rem 3.5rem; /* taller top bar to allow logo to sit halfway down */
+      padding: 2rem 1rem 3.5rem;
       position: relative;
     }
     header {
       background-color: #000000;
-      height: 3.5rem; /* match logo overlap */
+      height: 3.5rem;
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
@@ -29,7 +28,7 @@
     }
     .logo-container {
       position: absolute;
-      top: calc(100% - 30px); /* position halfway between gold and black */
+      top: calc(100% - 30px);
       left: 1rem;
       z-index: 2;
     }
@@ -55,6 +54,7 @@
     .lang-switch {
       font-size: 0.9rem;
       color: #fff;
+      margin-bottom: 0.5rem;
     }
     .lang-switch a {
       text-decoration: none;
@@ -137,7 +137,6 @@
       }
       .logo-container {
         position: static;
-        transform: none;
         margin-bottom: 1rem;
       }
       header {
@@ -146,198 +145,87 @@
     }
   </style>
 </head>
-
-
 <body>
-  <header>
+  <div class="top-bar">
     <div class="logo-container">
       <img src="logo.png" alt="AD Diesel Logo">
     </div>
     <div class="header-right">
       <div class="phone">📞 <a href="tel:4509992221">450 999-2221</a></div>
-      <div class="lang-switch">
-        <a onclick="switchLanguage('fr')">FR</a> | <a onclick="switchLanguage('en')">EN</a>
-      </div>
+    </div>
+  </div>
+  <header>
+    <div class="lang-switch">
+      <a onclick="switchLanguage('fr')">FR</a> | <a onclick="switchLanguage('en')">EN</a>
     </div>
   </header>
-
-  <div id="en">
-    <section class="section">
-      <h2>Our Services</h2>
-      <div class="service-gallery" id="serviceGallery">
-        <div class="service-track">
-          <div class="service-card">
-            <img src="https://tse2.mm.bing.net/th?id=OIP.rZmTOLbiNx5Et67MLc_YRAHaE8&pid=Api" alt="Heavy-Duty Equipment">
-            <div class="info">
-              <h3>Heavy-Duty Equipment Repair</h3>
-              <p>Mobile service for excavators, loaders & more.</p>
-            </div>
+  <section class="section">
+    <h2>Our Services</h2>
+    <div class="service-gallery">
+      <div class="service-track">
+        <div class="service-card">
+          <img src="https://tse2.mm.bing.net/th?id=OIP.rZmTOLbiNx5Et67MLc_YRAHaE8&pid=Api" alt="Heavy-Duty Equipment">
+          <div class="info">
+            <h3>Heavy-Duty Equipment Repair</h3>
+            <p>Mobile service for excavators, loaders & more.</p>
           </div>
-          <div class="service-card">
-            <img src="https://tse2.mm.bing.net/th?id=OIP._uK6yno5aIRL1izIB1kBbQHaEy&pid=Api" alt="Diagnostics">
-            <div class="info">
-              <h3>Semi-Truck Diagnostics & Maintenance</h3>
-              <p>On-the-road troubleshooting and preventive service.</p>
-            </div>
+        </div>
+        <div class="service-card">
+          <img src="https://tse2.mm.bing.net/th?id=OIP._uK6yno5aIRL1izIB1kBbQHaEy&pid=Api" alt="Diagnostics">
+          <div class="info">
+            <h3>Semi-Truck Diagnostics & Maintenance</h3>
+            <p>On-the-road troubleshooting and preventive service.</p>
           </div>
-          <div class="service-card">
-            <img src="https://tse1.mm.bing.net/th?id=OIP.zBD6iEhnqyRYJoNOsJOoIQHaHa&pid=Api" alt="Trailer Repair">
-            <div class="info">
-              <h3>Trailer Repairs</h3>
-              <p>Brake, suspension, lights and structure repairs.</p>
-            </div>
+        </div>
+        <div class="service-card">
+          <img src="https://tse1.mm.bing.net/th?id=OIP.zBD6iEhnqyRYJoNOsJOoIQHaHa&pid=Api" alt="Trailer Repair">
+          <div class="info">
+            <h3>Trailer Repairs</h3>
+            <p>Brake, suspension, lights and structure repairs.</p>
           </div>
-          <div class="service-card">
-            <img src="https://managedmobile.com/wp-content/uploads/2018/12/roadside-assistance.jpg" alt="Roadside Assistance">
-            <div class="info">
-              <h3>Mobile Roadside Assistance</h3>
-              <p>24/7 emergency support to get you back on the road.</p>
-            </div>
+        </div>
+        <div class="service-card">
+          <img src="https://managedmobile.com/wp-content/uploads/2018/12/roadside-assistance.jpg" alt="Roadside Assistance">
+          <div class="info">
+            <h3>Mobile Roadside Assistance</h3>
+            <p>24/7 emergency support to get you back on the road.</p>
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="section">
-      <h2>Certified Professionals</h2>
-      <div class="certs">
-        <div class="box">Certified Truck Technicians</div>
-        <div class="box">Certified Heavy Machinery Experts</div>
-        <div class="box">PEP Inspectors</div>
-        <div class="box">Pre-SAAQ Inspections</div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Service Areas</h2>
-      <div class="coverage">
-        <div class="box">Vaudreuil-Soulanges</div>
-        <div class="box">Montréal</div>
-        <div class="box">Laval</div>
-        <div class="box">Rive-Nord</div>
-        <div class="box">Rive-Sud</div>
-        <div class="box">Montérégie</div>
-      </div>
-    </section>
-
-    <section class="contact">
-      <h2>24/7 Emergency Service</h2>
-      <p>Call us anytime</p>
-      <p><strong>Phone:</strong> 450 999-2221</p>
-      <p><strong>Email:</strong> ad.diesel@mail.com</p>
-    </section>
-  </div>
-
-  <div id="fr" style="display:none;">
-    <section class="section">
-      <h2>Nos Services</h2>
-      <div class="service-gallery">
-        <div class="service-track">
-          <div class="service-card">
-            <img src="https://tse2.mm.bing.net/th?id=OIP.rZmTOLbiNx5Et67MLc_YRAHaE8&pid=Api" alt="Équipement lourd">
-            <div class="info">
-              <h3>Réparation d'équipement lourd</h3>
-              <p>Service mobile pour excavatrices, chargeuses et plus.</p>
-            </div>
-          </div>
-          <div class="service-card">
-            <img src="https://tse2.mm.bing.net/th?id=OIP._uK6yno5aIRL1izIB1kBbQHaEy&pid=Api" alt="Diagnostics">
-            <div class="info">
-              <h3>Diagnostics et entretien de camions lourds</h3>
-              <p>Dépannage sur route et service préventif.</p>
-            </div>
-          </div>
-          <div class="service-card">
-            <img src="https://tse1.mm.bing.net/th?id=OIP.zBD6iEhnqyRYJoNOsJOoIQHaHa&pid=Api" alt="Réparation de remorque">
-            <div class="info">
-              <h3>Réparation de remorques</h3>
-              <p>Freins, suspension, lumières et structure.</p>
-            </div>
-          </div>
-          <div class="service-card">
-            <img src="https://managedmobile.com/wp-content/uploads/2018/12/roadside-assistance.jpg" alt="Assistance routière">
-            <div class="info">
-              <h3>Assistance routière mobile</h3>
-              <p>Service d'urgence 24/7 pour remettre votre flotte en route.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Techniciens Certifiés</h2>
-      <div class="certs">
-        <div class="box">Techniciens certifiés en camions lourds</div>
-        <div class="box">Experts certifiés en machinerie lourde</div>
-        <div class="box">Inspecteurs PEP</div>
-        <div class="box">Pré-inspections SAAQ</div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Secteurs Desservis</h2>
-      <div class="coverage">
-        <div class="box">Vaudreuil-Soulanges</div>
-        <div class="box">Montréal</div>
-        <div class="box">Laval</div>
-        <div class="box">Rive-Nord</div>
-        <div class="box">Rive-Sud</div>
-        <div class="box">Montérégie</div>
-      </div>
-    </section>
-
-    <section class="contact">
-      <h2>Service d'urgence 24/7</h2>
-      <p>Appelez-nous à tout moment</p>
-      <p><strong>Téléphone :</strong> 450 999-2221</p>
-      <p><strong>Courriel :</strong> ad.diesel@mail.com</p>
-    </section>
-  </div>
-
+    </div>
+  </section>
+  <section class="section">
+    <h2>Certified Professionals</h2>
+    <div class="certs">
+      <div class="box">Certified Truck Technicians</div>
+      <div class="box">Certified Heavy Machinery Experts</div>
+      <div class="box">PEP Inspectors</div>
+      <div class="box">Pre-SAAQ Inspections</div>
+    </div>
+  </section>
+  <section class="section">
+    <h2>Service Areas</h2>
+    <div class="coverage">
+      <div class="box">Vaudreuil-Soulanges</div>
+      <div class="box">Montréal</div>
+      <div class="box">Laval</div>
+      <div class="box">Rive-Nord</div>
+      <div class="box">Rive-Sud</div>
+      <div class="box">Montérégie</div>
+    </div>
+  </section>
+  <section class="contact">
+    <h2>24/7 Emergency Service</h2>
+    <p>Call us anytime</p>
+    <p><strong>Phone:</strong> 450 999-2221</p>
+    <p><strong>Email:</strong> ad.diesel@mail.com</p>
+  </section>
   <footer>
-    <p id="footer-text">&copy; 2025 AD Diesel. All rights reserved.</p>
+    <p>&copy; 2025 AD Diesel. All rights reserved.</p>
   </footer>
-
   <script>
-    const gallery = document.getElementById('serviceGallery');
-    let scrollAmount = 0;
-    let isUserScrolling = false;
-    const scrollSpeed = 0.5;
-
-    function autoScroll() {
-      if (!isUserScrolling && gallery) {
-        if (gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth) {
-          scrollAmount = 0;
-          gallery.scrollLeft = 0;
-        } else {
-          scrollAmount += scrollSpeed;
-          gallery.scrollLeft = scrollAmount;
-        }
-      }
-      requestAnimationFrame(autoScroll);
-    }
-
-    if (gallery) {
-      gallery.addEventListener('pointerdown', () => isUserScrolling = true);
-      gallery.addEventListener('pointerup', () => {
-        isUserScrolling = false;
-        scrollAmount = gallery.scrollLeft;
-      });
-      requestAnimationFrame(autoScroll);
-    }
-
     function switchLanguage(lang) {
-      document.getElementById('en').style.display = lang === 'en' ? 'block' : 'none';
-      document.getElementById('fr').style.display = lang === 'fr' ? 'block' : 'none';
-      document.getElementById('footer-text').innerHTML = lang === 'en' ? "&copy; 2025 AD Diesel. All rights reserved." : "&copy; 2025 AD Diesel. Tous droits réservés.";
-    }
-
-    const userLang = navigator.language || navigator.userLanguage;
-    if (userLang.startsWith('fr')) {
-      switchLanguage('fr');
-    } else {
-      switchLanguage('en');
+      alert(`Language switch to: ${lang}`);
     }
   </script>
 </body>
