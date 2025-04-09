@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AD Diesel | 24/7 Mobile Repairs</title>
+  <title>AD Diesel | Réparations mobiles 24/7</title>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -44,10 +44,6 @@
       text-decoration: underline;
       margin: 0 5px;
       font-weight: bold;
-    }
-    .language-switch a.active {
-      text-decoration: none;
-      font-weight: 900;
     }
     nav {
       background-color: #000;
@@ -94,75 +90,48 @@
 </head>
 <body>
   <div class="top-bar">
-    <img src="LOGO BASE AI SANS BACK.png" alt="AD Diesel Logo" class="logo">
+    <img src="LOGO BASE AI SANS BACK.png" alt="Logo AD Diesel" class="logo">
     <div class="contact">
       <div>450 999-2221</div>
       <div>ad.diesel@mail.com</div>
       <div class="language-switch">
-        <a href="#" id="fr-link">Français</a> | <a href="#" id="en-link">English</a>
+        <a href="index-fr.html">Français</a> | <a href="index.html">English</a>
       </div>
     </div>
   </div>
 
   <nav>
-    <a href="#services" data-fr="Services" data-en="Services">Services</a>
-    <a href="#certifications" data-fr="Certifications" data-en="Certifications">Certifications</a>
-    <a href="#coverage" data-fr="Zones desservies" data-en="Coverage">Coverage</a>
-    <a href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
+    <a href="#services">Services</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#coverage">Zones desservies</a>
+    <a href="#contact">Contact</a>
   </nav>
 
   <section class="section" id="services">
-    <h2 data-fr="Services" data-en="Services">Services</h2>
-    <p data-fr="Nous sommes spécialisés dans l'entretien, le diagnostic et les réparations mobiles pour camions, remorques et équipements lourds.">
-      We specialize in maintenance, diagnostics, and mobile repairs for trucks, trailers, and heavy machinery.
-    </p>
+    <h2>Services</h2>
+    <p>Nous sommes spécialisés dans l'entretien, le diagnostic et les réparations mobiles pour camions, remorques et équipements lourds.</p>
   </section>
 
   <section class="section" id="certifications">
-    <h2 data-fr="Certifications" data-en="Certifications">Certifications</h2>
-    <p data-fr="Techniciens diesel certifiés">Certified Diesel Technicians</p>
-    <p data-fr="Inspecteurs PEP">PEP Inspectors</p>
-    <p data-fr="Experts en inspections pré-SAAQ">Pre-SAAQ Inspection Experts</p>
+    <h2>Certifications</h2>
+    <p>Techniciens diesel certifiés</p>
+    <p>Inspecteurs PEP</p>
+    <p>Experts en inspections pré-SAAQ</p>
   </section>
 
   <section class="section" id="coverage">
-    <h2 data-fr="Zones desservies" data-en="Coverage Area">Coverage Area</h2>
-    <p data-fr="Vaudreuil-Soulanges, Montréal, Laval, Rive-Nord, Rive-Sud, Montérégie">
-      Vaudreuil-Soulanges, Montréal, Laval, Rive-Nord, Rive-Sud, Montérégie
-    </p>
+    <h2>Zones desservies</h2>
+    <p>Vaudreuil-Soulanges, Montréal, Laval, Rive-Nord, Rive-Sud, Montérégie</p>
   </section>
 
   <section class="section" id="contact">
-    <h2 data-fr="Contact" data-en="Contact">Contact</h2>
-    <p data-fr="Téléphone : 450 999-2221">Phone: 450 999-2221</p>
-    <p data-fr="Courriel : ad.diesel@mail.com">Email: ad.diesel@mail.com</p>
+    <h2>Contact</h2>
+    <p>Téléphone : 450 999-2221</p>
+    <p>Courriel : ad.diesel@mail.com</p>
   </section>
 
   <footer class="footer">
-    <p data-fr="© 2025 AD Diesel. Tous droits réservés.">&copy; 2025 AD Diesel. All rights reserved.</p>
+    &copy; 2025 AD Diesel. Tous droits réservés.
   </footer>
-
-  <script>
-    const userLang = navigator.language || navigator.userLanguage;
-    const isFrench = userLang.startsWith('fr');
-    const frLink = document.getElementById('fr-link');
-    const enLink = document.getElementById('en-link');
-
-    function setLanguage(lang) {
-      document.querySelectorAll('[data-fr], [data-en]').forEach(el => {
-        el.textContent = el.getAttribute(`data-${lang}`);
-      });
-      frLink.classList.remove('active');
-      enLink.classList.remove('active');
-      if (lang === 'fr') frLink.classList.add('active');
-      else enLink.classList.add('active');
-    }
-
-    frLink.addEventListener('click', e => { e.preventDefault(); setLanguage('fr'); });
-    enLink.addEventListener('click', e => { e.preventDefault(); setLanguage('en'); });
-
-    // Auto-detect
-    setLanguage(isFrench ? 'fr' : 'en');
-  </script>
 </body>
 </html>
