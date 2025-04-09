@@ -1,137 +1,131 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AD Diesel | Réparations mobiles 24/7</title>
-  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AD Diesel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
-      font-family: 'Titillium Web', sans-serif;
-      background-color: #f2f2f2;
-      color: #1a1a1a;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #1c1c1c;
+      color: #f2f2f2;
     }
-    .top-bar {
-      background-color: #d4af37;
+    header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0.5rem 1rem;
-      position: relative;
-    }
-    .top-bar .logo {
-      height: 80px;
-      margin-top: -20px;
-    }
-    .top-bar .contact {
-      text-align: right;
-      color: black;
-      font-weight: bold;
-    }
-    .top-bar .contact div {
-      margin-bottom: 4px;
-    }
-    .language-switch {
-      margin-top: 5px;
-    }
-    .language-switch a {
-      color: black;
-      text-decoration: underline;
-      margin: 0 5px;
-      font-weight: bold;
-    }
-    nav {
-      background-color: #000;
+      background: linear-gradient(to bottom, #e0b100 50%, #000 50%);
       padding: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
     }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
+    .logo-container {
+      flex: 0 0 auto;
+    }
+    .logo-container img {
+      max-width: 100px;
+      height: auto;
+    }
+    .header-text {
+      flex: 1;
+      text-align: center;
+    }
+    .header-text h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .tagline {
+      color: #e0b100;
+      font-size: 1rem;
     }
     .section {
-      padding: 40px 20px;
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .section h2 {
+      color: #e0b100;
+      margin-bottom: 1rem;
+    }
+    .services, .certs, .coverage {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .box {
+      background-color: #2c2c2c;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      flex: 1 1 300px;
+    }
+    .contact {
+      background-color: #e0b100;
+      color: #000;
+      padding: 2rem;
       text-align: center;
     }
-    h2 {
-      color: #d4af37;
-      margin-bottom: 20px;
+    .contact h2 {
+      margin-top: 0;
     }
-    .footer {
-      background-color: #0e0e0e;
-      color: white;
+    footer {
+      background-color: #111;
+      color: #777;
       text-align: center;
-      padding: 20px;
-    }
-    @media (max-width: 768px) {
-      .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-      }
-      .top-bar .contact {
-        text-align: left;
-        margin-top: 0.5rem;
-      }
-      nav {
-        flex-direction: column;
-        gap: 1rem;
-      }
+      padding: 1rem;
     }
   </style>
 </head>
 <body>
-  <div class="top-bar">
-    <img src="LOGO BASE AI SANS BACK.png" alt="Logo AD Diesel" class="logo">
-    <div class="contact">
-      <div>450 999-2221</div>
-      <div>ad.diesel@mail.com</div>
-      <div class="language-switch">
-        <a href="index-fr.html">Français</a> | <a href="index.html">English</a>
-      </div>
+  <header>
+    <div class="logo-container">
+      <img src="LOGO BASE AI SANS BACK.png" alt="AD Diesel Logo" />
     </div>
-  </div>
+    <div class="header-text">
+      <h1>AD Diesel</h1>
+      <p class="tagline">Heavy-duty equipment, semi-truck & trailer repair — 24/7 mobile service</p>
+    </div>
+  </header>
 
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#coverage">Zones desservies</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section class="section" id="services">
-    <h2>Services</h2>
-    <p>Nous sommes spécialisés dans l'entretien, le diagnostic et les réparations mobiles pour camions, remorques et équipements lourds.</p>
+  <section class="section">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="box">Heavy-Duty Equipment Repair</div>
+      <div class="box">Semi-Truck Diagnostics & Maintenance</div>
+      <div class="box">Trailer Repairs</div>
+      <div class="box">Mobile Roadside Assistance</div>
+    </div>
   </section>
 
-  <section class="section" id="certifications">
-    <h2>Certifications</h2>
-    <p>Techniciens diesel certifiés</p>
-    <p>Inspecteurs PEP</p>
-    <p>Experts en inspections pré-SAAQ</p>
+  <section class="section">
+    <h2>Certified Professionals</h2>
+    <div class="certs">
+      <div class="box">Certified Truck Technicians</div>
+      <div class="box">Certified Heavy Machinery Experts</div>
+      <div class="box">PEP Inspectors</div>
+      <div class="box">Pre-SAAQ Inspections</div>
+    </div>
   </section>
 
-  <section class="section" id="coverage">
-    <h2>Zones desservies</h2>
-    <p>Vaudreuil-Soulanges, Montréal, Laval, Rive-Nord, Rive-Sud, Montérégie</p>
+  <section class="section">
+    <h2>Service Areas</h2>
+    <div class="coverage">
+      <div class="box">Vaudreuil-Soulanges</div>
+      <div class="box">Montréal</div>
+      <div class="box">Laval</div>
+      <div class="box">Rive-Nord</div>
+      <div class="box">Rive-Sud</div>
+      <div class="box">Montérégie</div>
+    </div>
   </section>
 
-  <section class="section" id="contact">
-    <h2>Contact</h2>
-    <p>Téléphone : 450 999-2221</p>
-    <p>Courriel : ad.diesel@mail.com</p>
+  <section class="contact">
+    <h2>24/7 Emergency Service</h2>
+    <p>Call us anytime</p>
+    <p><strong>Phone:</strong> 450 999-2221</p>
+    <p><strong>Email:</strong> ad.diesel@mail.com</p>
   </section>
 
-  <footer class="footer">
-    &copy; 2025 AD Diesel. Tous droits réservés.
+  <footer>
+    <p>&copy; 2025 AD Diesel. All rights reserved.</p>
   </footer>
 </body>
 </html>
