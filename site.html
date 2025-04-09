@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,14 +20,13 @@
       align-items: center;
       background-color: #e0b100;
       padding: 0.5rem 1rem;
-      flex-wrap: wrap;
     }
     .logo-container {
       display: flex;
       align-items: center;
     }
     .logo-container img {
-      height: 60px;
+      height: 50px;
       display: block;
     }
     .header-right {
@@ -126,17 +126,19 @@
     }
     @media (max-width: 900px) {
       header {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
-        text-align: center;
+        text-align: left;
       }
       .header-right {
-        align-items: center;
-        margin-top: 0.5rem;
+        align-items: flex-end;
+        margin-top: 0;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="logo-container">
