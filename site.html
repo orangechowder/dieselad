@@ -14,27 +14,27 @@
       color: #000000;
     }
 
-.logo-container {
-  position: absolute;
-  top: 1.25rem;
-  left: 1rem;
-  transform: translateY(0);
-  z-index: 2;
-}
+    .top-bar {
+      background-color: #e0b100;
+      height: 55px;
+      padding: 0 1rem;
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .logo-container {
+      position: absolute;
+      top: 55px;
+      left: 1rem;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
 
     .logo-container img {
       height: 70px;
     }
-
-.top-bar {
-  background-color: #e0b100;
-  padding: 0 1rem;
-  height: 55px;
-  position: relative;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
 
     header {
       background-color: #000000;
@@ -139,19 +139,18 @@
 </head>
 <body>
 
-  <!-- Logo floats above everything and overlaps bars -->
-  <div class="logo-container">
-    <img src="logo.png" alt="AD Diesel Logo">
-  </div>
-
-  <!-- Yellow Bar with Phone -->
+  <!-- Top bar: logo & phone -->
   <div class="top-bar">
+    <div class="logo-container">
+      <img src="logo.png" alt="AD Diesel Logo">
+    </div>
+
     <div class="header-right">
       <div class="phone">📞 <a href="tel:4509992221">450 999-2221</a></div>
     </div>
   </div>
 
-  <!-- Black Bar with Language Switch -->
+  <!-- Black header bar with language switch -->
   <header>
     <div class="lang-switch">
       <a onclick="switchLanguage('fr')">FR</a> | <a onclick="switchLanguage('en')">EN</a>
@@ -242,7 +241,7 @@
     <p>&copy; 2025 AD Diesel. All rights reserved.</p>
   </footer>
 
-  <!-- Language Script -->
+  <!-- Language switch script -->
   <script>
     function switchLanguage(lang) {
       document.getElementById("content-en").style.display = lang === "en" ? "block" : "none";
@@ -251,6 +250,5 @@
     const userLang = navigator.language || navigator.userLanguage;
     switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
   </script>
-
 </body>
 </html>
