@@ -22,21 +22,21 @@
       align-items: center;
       background-color: #e0b100;
       padding: 0.5rem 1rem;
-      position: relative;
     }
     .logo-container {
       display: flex;
       align-items: center;
-      height: 80px;
+      height: 70px;
     }
     .logo-container img {
-      max-height: 100%;
+      max-height: 70px;
+      height: 100%;
       display: block;
-      position: relative;
-      top: 10px; /* creates slight overlap effect */
     }
     .header-right {
-      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
     }
     .header-right .phone {
       font-size: 1rem;
@@ -108,11 +108,13 @@
     }
     @media (max-width: 768px) {
       header {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         text-align: center;
       }
       .header-right {
+        align-items: center;
         margin-top: 0.5rem;
       }
     }
@@ -121,7 +123,7 @@
 <body>
   <header>
     <div class="logo-container">
-      <img src="logo.png" alt="AD Diesel Logo">
+      <img src="LOGO BASE AI SANS BACK.png" alt="AD Diesel Logo">
     </div>
     <div class="header-right">
       <div class="phone"><a href="tel:4509992221">450 999-2221</a></div>
