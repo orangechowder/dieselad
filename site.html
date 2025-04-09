@@ -113,25 +113,23 @@
       padding: 1rem;
       font-size: 0.9rem;
     }
-    @media (max-width: 900px) {
-      .top-bar {
-        flex-direction: column;
-        text-align: center;
-      }
-      .logo-container {
-        position: static;
-        transform: none;
-        margin-bottom: 1rem;
-      }
-      header {
-        justify-content: center;
-        flex-direction: column;
-      }
-      .lang-switch-container {
-        justify-content: center;
-        padding: 0;
-      }
-    }
+@media (max-width: 900px) {
+  .top-bar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* We are keeping the logo absolute to overlap both bars even on mobile */
+  header {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .lang-switch-container {
+    justify-content: center;
+    padding: 0;
+  }
+}
   </style>
 </head>
 <body>
