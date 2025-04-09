@@ -18,37 +18,42 @@
     }
     header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 1rem;
+      align-items: center;
       background-color: #e0b100;
+      padding: 0.5rem 1rem;
       position: relative;
     }
     .logo-container {
-      position: relative;
+      display: flex;
+      align-items: center;
+      height: 80px;
     }
     .logo-container img {
-      max-height: 60px;
-      margin-top: -15px;
+      max-height: 100%;
+      display: block;
+      position: relative;
+      top: 10px; /* creates slight overlap effect */
     }
     .header-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      font-size: 0.95rem;
+      text-align: right;
     }
     .header-right .phone {
+      font-size: 1rem;
       font-weight: bold;
-      color: #000;
     }
-    .lang-switch {
+    .header-right .phone a {
+      color: #000;
+      text-decoration: none;
+    }
+    .header-right .lang-switch {
+      font-size: 0.9rem;
       margin-top: 0.2rem;
     }
     .lang-switch a {
-      color: #000;
       text-decoration: none;
-      margin: 0 0.4rem;
-      font-weight: 500;
+      color: #000;
+      margin: 0 0.25rem;
     }
     .section {
       padding: 3rem 1.5rem;
@@ -104,10 +109,10 @@
     @media (max-width: 768px) {
       header {
         flex-direction: column;
+        align-items: center;
         text-align: center;
       }
       .header-right {
-        align-items: center;
         margin-top: 0.5rem;
       }
     }
@@ -116,10 +121,10 @@
 <body>
   <header>
     <div class="logo-container">
-      <img src="logo.png" alt="AD Diesel Logo" />
+      <img src="logo.png" alt="AD Diesel Logo">
     </div>
     <div class="header-right">
-      <div class="phone">450 999-2221</div>
+      <div class="phone"><a href="tel:4509992221">450 999-2221</a></div>
       <div class="lang-switch">
         <a href="#">FR</a> | <a href="#">EN</a>
       </div>
