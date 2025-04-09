@@ -19,6 +19,7 @@
     header {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       padding: 1rem 2rem;
       background-color: #000;
       border-bottom: 4px solid #e0b100;
@@ -27,17 +28,22 @@
       max-width: 90px;
       height: auto;
     }
-    .header-text {
-      margin-left: 1.5rem;
+    .header-right {
+      text-align: right;
     }
-    .header-text h1 {
-      margin: 0;
-      font-size: 2rem;
+    .phone {
       color: #e0b100;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
     }
-    .header-text .tagline {
-      font-size: 1rem;
+    .lang-switch {
       color: #f2f2f2;
+      font-size: 0.9rem;
+    }
+    .lang-switch a {
+      color: #f2f2f2;
+      text-decoration: none;
+      margin: 0 0.5rem;
     }
     .section {
       padding: 3rem 1.5rem;
@@ -95,8 +101,7 @@
         flex-direction: column;
         text-align: center;
       }
-      .header-text {
-        margin-left: 0;
+      .header-right {
         margin-top: 1rem;
       }
     }
@@ -107,9 +112,11 @@
     <div class="logo-container">
       <img src="LOGO BASE AI SANS BACK.png" alt="AD Diesel Logo" />
     </div>
-    <div class="header-text">
-      <h1>AD Diesel</h1>
-      <p class="tagline">Heavy-duty equipment, semi-truck & trailer repair — 24/7 mobile service</p>
+    <div class="header-right">
+      <div class="phone">450 999-2221</div>
+      <div class="lang-switch">
+        <a href="#">FR</a> | <a href="#">EN</a>
+      </div>
     </div>
   </header>
 
