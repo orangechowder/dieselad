@@ -13,6 +13,18 @@
       background-color: #ffffff;
       color: #000000;
     }
+
+    .logo-container {
+      position: absolute;
+      top: 100%;
+      left: 1rem;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+    .logo-container img {
+      height: 70px;
+    }
+
     .top-bar {
       background-color: #e0b100;
       padding: 0.5rem 1rem 2rem;
@@ -21,31 +33,25 @@
       justify-content: flex-end;
       align-items: center;
     }
+
     header {
       background-color: #000000;
       height: 2.5rem;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       padding: 0 1rem;
       position: relative;
       z-index: 1;
     }
-.logo-container {
-  position: absolute;
-  top: 100%;
-  left: 1rem;
-  transform: translateY(-50%);
-  z-index: 2;
-}
-.logo-container img {
-  height: 70px;
-}
+
     .header-right {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      text-align: right;
     }
+
     .header-right .phone {
       font-size: 1rem;
       font-weight: bold;
@@ -54,44 +60,44 @@
       gap: 0.5rem;
       color: #000;
     }
+
     .header-right .phone a {
       color: #000;
       text-decoration: none;
     }
+
     .lang-switch {
       font-size: 0.9rem;
       color: #fff;
     }
+
     .lang-switch a {
       text-decoration: none;
       color: #fff;
       margin: 0 0.25rem;
       cursor: pointer;
     }
-    .lang-switch-container {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      width: 100%;
-      padding-right: 1rem;
-    }
+
     .section {
       padding: 3rem 1.5rem;
       max-width: 1100px;
       margin: 0 auto;
     }
+
     .section h2 {
       color: #e0b100;
       margin-bottom: 1.5rem;
       text-align: center;
       font-size: 1.8rem;
     }
+
     .certs, .coverage {
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
       justify-content: center;
     }
+
     .box {
       background-color: #f7f7f7;
       padding: 1.5rem;
@@ -100,12 +106,14 @@
       text-align: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
+
     .contact {
       background-color: #e0b100;
       color: #000;
       padding: 3rem 1.5rem;
       text-align: center;
     }
+
     footer {
       background-color: #111;
       color: #777;
@@ -113,43 +121,39 @@
       padding: 1rem;
       font-size: 0.9rem;
     }
-@media (max-width: 900px) {
-  .top-bar {
-    flex-direction: column;
-    text-align: center;
-  }
 
-  /* We are keeping the logo absolute to overlap both bars even on mobile */
-  header {
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .lang-switch-container {
-    justify-content: center;
-    padding: 0;
-  }
-}
+    @media (max-width: 900px) {
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      header {
+        justify-content: center;
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Top: Logo & Phone -->
-<div class="top-bar">
+
+  <!-- Logo floats on left overlapping both bars -->
   <div class="logo-container">
     <img src="logo.png" alt="AD Diesel Logo">
   </div>
-  <div class="header-right">
-    <div class="phone">📞 <a href="tel:4509992221">450 999-2221</a></div>
-  </div>
-</div>
 
-<header>
-  <div class="lang-switch-container">
+  <!-- Top: Yellow bar with phone -->
+  <div class="top-bar">
+    <div class="header-right">
+      <div class="phone">📞 <a href="tel:4509992221">450 999-2221</a></div>
+    </div>
+  </div>
+
+  <!-- Bottom: Black bar with language switch -->
+  <header>
     <div class="lang-switch">
       <a onclick="switchLanguage('fr')">FR</a> | <a onclick="switchLanguage('en')">EN</a>
     </div>
-  </div>
-</header>
+  </header>
 
   <!-- English Content -->
   <div id="content-en">
@@ -235,20 +239,15 @@
     <p>&copy; 2025 AD Diesel. All rights reserved.</p>
   </footer>
 
-  <!-- Language Toggle Script -->
+  <!-- Language Switch Script -->
   <script>
     function switchLanguage(lang) {
       document.getElementById("content-en").style.display = lang === "en" ? "block" : "none";
       document.getElementById("content-fr").style.display = lang === "fr" ? "block" : "none";
     }
-
-    // Auto-detect language on load
     const userLang = navigator.language || navigator.userLanguage;
-    if (userLang.startsWith("fr")) {
-      switchLanguage("fr");
-    } else {
-      switchLanguage("en");
-    }
+    switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
   </script>
+
 </body>
 </html>
