@@ -1,56 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AD Diesel | 24/7 Mobile Repairs</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Titillium Web', sans-serif;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Titillium Web', sans-serif;
       background-color: #f2f2f2;
       color: #1a1a1a;
     }
-    header {
-      background-color: #0e0e0e;
-      color: white;
-      padding: 20px;
+    .top-bar {
+      background-color: #d4af37;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 0.5rem 1rem;
+      position: relative;
     }
-    header img {
-      height: 50px;
+    .top-bar .logo {
+      height: 80px;
+      margin-top: -20px;
+    }
+    .top-bar .contact {
+      text-align: right;
+      color: black;
+      font-weight: bold;
+    }
+    .top-bar .contact div {
+      margin-bottom: 4px;
+    }
+    .language-switch {
+      margin-top: 5px;
+    }
+    .language-switch a {
+      color: black;
+      text-decoration: underline;
+      margin: 0 5px;
+      font-weight: bold;
+    }
+    .language-switch a.active {
+      text-decoration: none;
+      font-weight: 900;
+    }
+    nav {
+      background-color: #000;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
     }
     nav a {
       color: white;
-      margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
-    }
-    .hero {
-      text-align: center;
-      padding: 50px 20px;
-      background-color: #1a1a1a;
-      color: white;
-    }
-    .hero img {
-      width: 150px;
     }
     .section {
       padding: 40px 20px;
       text-align: center;
     }
-    .section:nth-child(even) {
-      background-color: #e6e6e6;
-    }
     h2 {
-      margin-bottom: 20px;
       color: #d4af37;
+      margin-bottom: 20px;
     }
     .footer {
       background-color: #0e0e0e;
@@ -58,59 +75,94 @@
       text-align: center;
       padding: 20px;
     }
-    .contact-info {
-      margin-top: 10px;
-    }
     @media (max-width: 768px) {
-      nav {
-        display: flex;
+      .top-bar {
         flex-direction: column;
-        gap: 10px;
+        align-items: flex-start;
+        text-align: left;
+      }
+      .top-bar .contact {
+        text-align: left;
+        margin-top: 0.5rem;
+      }
+      nav {
+        flex-direction: column;
+        gap: 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="LOGO BASE AI SANS BACK.png" alt="AD Diesel Logo">
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#coverage">Coverage</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <div class="top-bar">
+    <img src="LOGO BASE AI SANS BACK.png" alt="AD Diesel Logo" class="logo">
+    <div class="contact">
+      <div>450 999-2221</div>
+      <div>ad.diesel@mail.com</div>
+      <div class="language-switch">
+        <a href="#" id="fr-link">Français</a> | <a href="#" id="en-link">English</a>
+      </div>
+    </div>
+  </div>
 
-  <section class="hero">
-    <h1>AD Diesel</h1>
-    <p>24/7 Mobile Repairs for Heavy Duty Equipment, Semi-Trucks & Trailers</p>
-  </section>
+  <nav>
+    <a href="#services" data-fr="Services" data-en="Services">Services</a>
+    <a href="#certifications" data-fr="Certifications" data-en="Certifications">Certifications</a>
+    <a href="#coverage" data-fr="Zones desservies" data-en="Coverage">Coverage</a>
+    <a href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
+  </nav>
 
   <section class="section" id="services">
-    <h2>Services</h2>
-    <p>We specialize in maintenance, diagnostics, and mobile repairs for trucks, trailers, and heavy machinery.</p>
+    <h2 data-fr="Services" data-en="Services">Services</h2>
+    <p data-fr="Nous sommes spécialisés dans l'entretien, le diagnostic et les réparations mobiles pour camions, remorques et équipements lourds.">
+      We specialize in maintenance, diagnostics, and mobile repairs for trucks, trailers, and heavy machinery.
+    </p>
   </section>
 
   <section class="section" id="certifications">
-    <h2>Certifications</h2>
-    <p>Certified Diesel Technicians</p>
-    <p>PEP Inspectors</p>
-    <p>Pre-SAAQ Inspection Experts</p>
+    <h2 data-fr="Certifications" data-en="Certifications">Certifications</h2>
+    <p data-fr="Techniciens diesel certifiés">Certified Diesel Technicians</p>
+    <p data-fr="Inspecteurs PEP">PEP Inspectors</p>
+    <p data-fr="Experts en inspections pré-SAAQ">Pre-SAAQ Inspection Experts</p>
   </section>
 
   <section class="section" id="coverage">
-    <h2>Coverage Area</h2>
-    <p>Vaudreuil-Soulanges, Montréal, Laval, Rive-Nord, Rive-Sud, Montérégie</p>
+    <h2 data-fr="Zones desservies" data-en="Coverage Area">Coverage Area</h2>
+    <p data-fr="Vaudreuil-Soulanges, Montréal, Laval, Rive-Nord, Rive-Sud, Montérégie">
+      Vaudreuil-Soulanges, Montréal, Laval, Rive-Nord, Rive-Sud, Montérégie
+    </p>
   </section>
 
   <section class="section" id="contact">
-    <h2>Contact</h2>
-    <p class="contact-info">Phone: 450 999-2221</p>
-    <p class="contact-info">Email: ad.diesel@mail.com</p>
+    <h2 data-fr="Contact" data-en="Contact">Contact</h2>
+    <p data-fr="Téléphone : 450 999-2221">Phone: 450 999-2221</p>
+    <p data-fr="Courriel : ad.diesel@mail.com">Email: ad.diesel@mail.com</p>
   </section>
 
   <footer class="footer">
-    <p>© 2025 AD Diesel. All rights reserved.</p>
+    <p data-fr="© 2025 AD Diesel. Tous droits réservés.">&copy; 2025 AD Diesel. All rights reserved.</p>
   </footer>
+
+  <script>
+    const userLang = navigator.language || navigator.userLanguage;
+    const isFrench = userLang.startsWith('fr');
+    const frLink = document.getElementById('fr-link');
+    const enLink = document.getElementById('en-link');
+
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-fr], [data-en]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
+      frLink.classList.remove('active');
+      enLink.classList.remove('active');
+      if (lang === 'fr') frLink.classList.add('active');
+      else enLink.classList.add('active');
+    }
+
+    frLink.addEventListener('click', e => { e.preventDefault(); setLanguage('fr'); });
+    enLink.addEventListener('click', e => { e.preventDefault(); setLanguage('en'); });
+
+    // Auto-detect
+    setLanguage(isFrench ? 'fr' : 'en');
+  </script>
 </body>
 </html>
