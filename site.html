@@ -7,58 +7,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
-body {
-  margin: 90px 0 0 0; /* add space for fixed top bar + logo */
-  font-family: 'Roboto', sans-serif;
-  background-color: #3a3a3a;
-  color: #000000;
-}
-
-.top-bar {
-  background-color: #e0b100;
-  height: 55px;
-  padding: 0 1rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
+    body {
+      margin: 110px 0 0 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+    .top-bar {
+      background-color: #e0b100;
+      height: 70px;
+      padding: 0 1rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     .logo-container {
       position: absolute;
-      top: 45px;
+      top: 70px;
       left: 1rem;
       transform: translateY(-50%);
       z-index: 2;
     }
-
     .logo-container img {
       height: 90px;
     }
-
-header {
-  background-color: #e9e19c;
-  height: 1.75rem; /* change this value */
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0 1rem;
-  position: relative;
-  z-index: 1;
-}
-
-    .header-right {
+    .top-right {
+      text-align: right;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      text-align: right;
     }
-
-    .header-right .phone {
+    .phone {
       font-size: 1rem;
       font-weight: bold;
       display: flex;
@@ -66,95 +50,73 @@ header {
       gap: 0.5rem;
       color: #000;
     }
-
-    .header-right .phone a {
+    .phone a {
       color: #000;
       text-decoration: none;
     }
-
     .lang-switch {
       font-size: 0.9rem;
-      color: #fff;
+      color: #000;
     }
-
     .lang-switch a {
       text-decoration: none;
-      color: #fff;
+      color: #000;
       margin: 0 0.25rem;
       cursor: pointer;
     }
-
     .section {
       padding: 3rem 1.5rem;
       max-width: 1100px;
       margin: 0 auto;
     }
-
     .section h2 {
       color: #e0b100;
       margin-bottom: 1.5rem;
       text-align: center;
       font-size: 1.8rem;
     }
-
-    .certs, .coverage {
+    .carousel {
+      overflow-x: auto;
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
+      scroll-behavior: smooth;
     }
-
-    .box {
-      background-color: #f7f7f7;
-      padding: 1.5rem;
-      border-radius: 0.75rem;
-      flex: 1 1 280px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    .carousel::-webkit-scrollbar {
+      display: none;
     }
-
+    .card {
+      flex: 0 0 auto;
+      background: #1c1c1c;
+      border-radius: 8px;
+      margin-right: 1rem;
+      width: 280px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .card .info {
+      padding: 1rem;
+    }
+    .card .info h3 {
+      margin-top: 0;
+      color: #e0b100;
+    }
+    .box, .certs, .coverage {
+      background-color: #1c1c1c;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 0.5rem auto;
+      max-width: 600px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
     .contact {
       background-color: #e0b100;
       color: #000;
       padding: 3rem 1.5rem;
       text-align: center;
     }
-.top-right {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.25rem;
-}
-
-.phone {
-  font-size: 0.95rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.phone a {
-  color: #000;
-  text-decoration: none;
-}
-
-.lang-switch {
-  font-size: 0.9rem;
-  color: #000;
-}
-
-.lang-switch a {
-  text-decoration: none;
-  color: #000;
-  margin: 0 0.2rem;
-  cursor: pointer;
-}
     footer {
       background-color: #111;
       color: #777;
@@ -162,129 +124,86 @@ header {
       padding: 1rem;
       font-size: 0.9rem;
     }
-
-    @media (max-width: 900px) {
+    @media (max-width: 768px) {
       .top-bar {
         flex-direction: column;
-        align-items: flex-end;
+        height: auto;
       }
-
-      header {
-        justify-content: center;
-        flex-direction: column;
+      .top-right {
+        align-items: center;
       }
     }
   </style>
 </head>
 <body>
-
-  <!-- Top bar: logo & phone -->
-
-<div class="top-bar">
-  <div class="logo-container">
-    <img src="logo.png" alt="AD Diesel Logo">
-  </div>
-
-  <div class="top-right">
-    <div class="phone">📞 <a href="tel:4509992221">450 999-2221</a></div>
-    <div class="lang-switch">
-      <a onclick="switchLanguage('fr')">FR</a> | <a onclick="switchLanguage('en')">EN</a>
+  <div class="top-bar">
+    <div class="logo-container"><img src="logo.png" alt="AD Diesel Logo"></div>
+    <div class="top-right">
+      <div class="phone">📞 <a href="tel:4509992221">450 999-2221</a></div>
+      <div class="lang-switch">
+        <a onclick="switchLanguage('fr')">FR</a> | <a onclick="switchLanguage('en')">EN</a>
+      </div>
     </div>
   </div>
-</div>
 
-  <!-- English Content -->
+  <!-- English -->
   <div id="content-en">
     <section class="section">
       <h2>Our Services</h2>
-      <div class="box">Heavy-Duty Equipment Repair</div>
-      <div class="box">Semi-Truck Diagnostics & Maintenance</div>
-      <div class="box">Trailer Repairs</div>
-      <div class="box">Mobile Roadside Assistance</div>
-    </section>
-
-    <section class="section">
-      <h2>Certified Professionals</h2>
-      <div class="certs">
-        <div class="box">Certified Truck Technicians</div>
-        <div class="box">Certified Heavy Machinery Experts</div>
-        <div class="box">PEP Inspectors</div>
-        <div class="box">Pre-SAAQ Inspections</div>
+      <div class="carousel" id="carousel">
+        <div class="card"><img src="https://source.unsplash.com/280x160/?excavator" alt=""><div class="info"><h3>Heavy-Duty Equipment Repair</h3><p>Mobile service for excavators, loaders & more.</p></div></div>
+        <div class="card"><img src="https://source.unsplash.com/280x160/?truck-maintenance" alt=""><div class="info"><h3>Semi-Truck Diagnostics & Maintenance</h3><p>On-the-road troubleshooting and preventive service.</p></div></div>
+        <div class="card"><img src="https://source.unsplash.com/280x160/?trailer-repair" alt=""><div class="info"><h3>Trailer Repairs</h3><p>Brake, suspension, lights and structure repairs.</p></div></div>
+        <div class="card"><img src="https://source.unsplash.com/280x160/?roadside-assistance" alt=""><div class="info"><h3>Mobile Roadside Assistance</h3><p>Available 24/7 across the region.</p></div></div>
       </div>
     </section>
-
-    <section class="section">
-      <h2>Service Areas</h2>
-      <div class="coverage">
-        <div class="box">Vaudreuil-Soulanges</div>
-        <div class="box">Montréal</div>
-        <div class="box">Laval</div>
-        <div class="box">Rive-Nord</div>
-        <div class="box">Rive-Sud</div>
-        <div class="box">Montérégie</div>
-      </div>
-    </section>
-
-    <section class="contact">
-      <h2>24/7 Emergency Service</h2>
-      <p>Call us anytime</p>
-      <p><strong>Phone:</strong> 450 999-2221</p>
-      <p><strong>Email:</strong> ad.diesel@mail.com</p>
-    </section>
+    <section class="section"><h2>Certified Professionals</h2><div class="box">Certified Truck Technicians</div><div class="box">Certified Heavy Machinery Experts</div><div class="box">PEP Inspectors</div><div class="box">Pre-SAAQ Inspections</div></section>
+    <section class="section"><h2>Service Areas</h2><div class="box">Vaudreuil-Soulanges</div><div class="box">Montréal</div><div class="box">Laval</div><div class="box">Rive-Nord</div><div class="box">Rive-Sud</div><div class="box">Montérégie</div></section>
+    <section class="contact"><h2>24/7 Emergency Service</h2><p>Call us anytime</p><p><strong>Phone:</strong> 450 999-2221</p><p><strong>Email:</strong> ad.diesel@mail.com</p></section>
   </div>
 
-  <!-- French Content -->
+  <!-- French -->
   <div id="content-fr" style="display: none;">
     <section class="section">
       <h2>Nos Services</h2>
-      <div class="box">Réparation d'équipement lourd</div>
-      <div class="box">Diagnostic & entretien de camions lourds</div>
-      <div class="box">Réparation de remorques</div>
-      <div class="box">Assistance routière mobile</div>
-    </section>
-
-    <section class="section">
-      <h2>Techniciens Certifiés</h2>
-      <div class="certs">
-        <div class="box">Techniciens certifiés en camions</div>
-        <div class="box">Experts certifiés en machinerie lourde</div>
-        <div class="box">Inspecteurs PEP</div>
-        <div class="box">Pré-inspections SAAQ</div>
+      <div class="carousel" id="carousel-fr">
+        <div class="card"><img src="https://source.unsplash.com/280x160/?excavator" alt=""><div class="info"><h3>Réparation d'équipement lourd</h3><p>Service mobile pour excavatrices, chargeuses, etc.</p></div></div>
+        <div class="card"><img src="https://source.unsplash.com/280x160/?truck-maintenance" alt=""><div class="info"><h3>Diagnostics & Entretien de Camions</h3><p>Dépannage routier et entretien préventif.</p></div></div>
+        <div class="card"><img src="https://source.unsplash.com/280x160/?trailer-repair" alt=""><div class="info"><h3>Réparations de Remorques</h3><p>Freins, suspension, lumières et structure.</p></div></div>
+        <div class="card"><img src="https://source.unsplash.com/280x160/?roadside-assistance" alt=""><div class="info"><h3>Assistance Routière Mobile</h3><p>Disponible 24/7 dans toute la région.</p></div></div>
       </div>
     </section>
-
-    <section class="section">
-      <h2>Zones Desservies</h2>
-      <div class="coverage">
-        <div class="box">Vaudreuil-Soulanges</div>
-        <div class="box">Montréal</div>
-        <div class="box">Laval</div>
-        <div class="box">Rive-Nord</div>
-        <div class="box">Rive-Sud</div>
-        <div class="box">Montérégie</div>
-      </div>
-    </section>
-
-    <section class="contact">
-      <h2>Service d’urgence 24/7</h2>
-      <p>Appelez-nous à tout moment</p>
-      <p><strong>Téléphone :</strong> 450 999-2221</p>
-      <p><strong>Courriel :</strong> ad.diesel@mail.com</p>
-    </section>
+    <section class="section"><h2>Techniciens Certifiés</h2><div class="box">Techniciens certifiés camions</div><div class="box">Experts en machinerie lourde</div><div class="box">Inspecteurs PEP</div><div class="box">Pré-inspections SAAQ</div></section>
+    <section class="section"><h2>Zones Desservies</h2><div class="box">Vaudreuil-Soulanges</div><div class="box">Montréal</div><div class="box">Laval</div><div class="box">Rive-Nord</div><div class="box">Rive-Sud</div><div class="box">Montérégie</div></section>
+    <section class="contact"><h2>Service d'urgence 24/7</h2><p>Appelez-nous à tout moment</p><p><strong>Téléphone :</strong> 450 999-2221</p><p><strong>Courriel :</strong> ad.diesel@mail.com</p></section>
   </div>
 
-  <footer>
-    <p>&copy; 2025 AD Diesel. All rights reserved.</p>
-  </footer>
+  <footer><p>&copy; 2025 AD Diesel. All rights reserved.</p></footer>
 
-  <!-- Language switch script -->
   <script>
     function switchLanguage(lang) {
       document.getElementById("content-en").style.display = lang === "en" ? "block" : "none";
       document.getElementById("content-fr").style.display = lang === "fr" ? "block" : "none";
     }
+
     const userLang = navigator.language || navigator.userLanguage;
     switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
+
+    function autoScrollCarousel(id) {
+      const el = document.getElementById(id);
+      let scrollAmount = 0;
+      setInterval(() => {
+        el.scrollBy({ left: 1, behavior: "smooth" });
+        scrollAmount++;
+        if (scrollAmount > el.scrollWidth - el.clientWidth) {
+          el.scrollTo({ left: 0, behavior: "smooth" });
+          scrollAmount = 0;
+        }
+      }, 30);
+    }
+
+    autoScrollCarousel("carousel");
+    autoScrollCarousel("carousel-fr");
   </script>
 </body>
 </html>
