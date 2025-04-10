@@ -16,9 +16,13 @@
 
 .top-bar {
   background-color: #e0b100;
-  height: 45px; /* change this value */
+  height: 45px;
   padding: 0 1rem;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -175,6 +179,9 @@ header {
 <body>
 
   <!-- Top bar: logo & phone -->
+  body {
+  margin-top: 90px; /* adjust if your logo or bar height changes */
+}
 <div class="top-bar">
   <div class="logo-container">
     <img src="logo.png" alt="AD Diesel Logo">
