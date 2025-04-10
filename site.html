@@ -8,111 +8,130 @@
   <style>
     * { box-sizing: border-box; }
     body {
-      margin: 0;
-      padding-top: 110px;
+      margin: 100px 0 0 0;
       font-family: 'Roboto', sans-serif;
       background-color: #000;
       color: #fff;
     }
 
     .top-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 65px;
       background-color: #e0b100;
+      height: 70px;
+      padding: 0 1rem;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 1rem;
-      z-index: 1000;
-    }
-
-    .logo-container {
-      position: absolute;
-      top: -20px;
-      left: 1rem;
-      z-index: 1001;
     }
 
     .logo-container img {
-      height: 100px;
+      height: 90px;
+      margin-top: 20px;
     }
 
     .top-right {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      text-align: right;
+      line-height: 1.2;
     }
 
-    .top-right .phone {
+    .phone {
+      font-size: 1rem;
       font-weight: bold;
       color: #000;
-      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
-    .top-right .phone a {
+    .phone a {
       color: #000;
       text-decoration: none;
     }
 
     .lang-switch {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: #000;
     }
 
     .lang-switch a {
-      text-decoration: none;
       color: #000;
+      text-decoration: none;
       margin: 0 0.25rem;
+      cursor: pointer;
     }
 
     h2 {
       text-align: center;
       color: #e0b100;
-      font-size: 1.8rem;
+      font-size: 2rem;
       margin-top: 2rem;
     }
 
-    .carousel {
-      display: flex;
+    .carousel-container {
       overflow-x: auto;
-      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      display: flex;
       gap: 1rem;
       padding: 1rem;
       margin-top: 1rem;
     }
 
-    .carousel::-webkit-scrollbar {
-      display: none;
-    }
-
-    .card {
-      flex: 0 0 auto;
-      width: 300px;
-      background: #1a1a1a;
-      border-radius: 12px;
-      padding: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    }
-
-    .card h3 {
-      color: #e0b100;
-      margin-top: 0;
-    }
-
-    .section {
-      padding: 2rem 1rem;
-    }
-
-    .section .box {
+    .service-card {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
       background-color: #1a1a1a;
-      margin: 1rem auto;
-      padding: 1rem;
       border-radius: 10px;
-      max-width: 500px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .service-card .info {
+      padding: 1rem;
+    }
+
+    .info h3 {
+      margin-top: 0;
+      color: #e0b100;
+    }
+
+    .info p {
+      margin: 0.5rem 0 0;
+      color: #f2f2f2;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .box {
+      background-color: #1f1f1f;
+      border-radius: 10px;
+      padding: 1.2rem;
+      min-width: 240px;
       text-align: center;
+      color: #fff;
+    }
+
+    .contact {
+      text-align: center;
+      background-color: #e0b100;
+      color: #000;
+      padding: 2rem 1rem;
     }
 
     footer {
@@ -123,22 +142,14 @@
       font-size: 0.9rem;
     }
 
-    @media (max-width: 600px) {
-      .card {
-        width: 250px;
-      }
-
-      .logo-container img {
-        height: 80px;
-      }
-    }
+    .carousel-container::-webkit-scrollbar { display: none; }
   </style>
 </head>
 <body>
 
   <div class="top-bar">
     <div class="logo-container">
-      <img src="logo.png" alt="AD Diesel Logo" />
+      <img src="logo.png" alt="AD Diesel Logo">
     </div>
     <div class="top-right">
       <div class="phone">📞 <a href="tel:4509992221">450 999-2221</a></div>
@@ -151,27 +162,39 @@
   <!-- English Content -->
   <div id="content-en">
     <h2>Our Services</h2>
-    <div class="carousel" id="service-carousel">
-      <div class="card">
-        <h3>Heavy-Duty Equipment Repair</h3>
-        <p>Mobile service for excavators, loaders & more.</p>
+    <div class="carousel-container" id="carousel">
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1609781173740-189d3ec7dd20?auto=format&fit=crop&w=800&q=80" alt="Heavy Equipment">
+        <div class="info">
+          <h3>Heavy-Duty Equipment Repair</h3>
+          <p>Excavators, loaders, graders & more.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Semi-Truck Diagnostics & Maintenance</h3>
-        <p>On-the-road troubleshooting and preventive service.</p>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1581091215367-59a8c3d19f9c?auto=format&fit=crop&w=800&q=80" alt="Diagnostics">
+        <div class="info">
+          <h3>Semi-Truck Diagnostics & Maintenance</h3>
+          <p>Full system scan, road checks & inspections.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Trailer Repairs</h3>
-        <p>Brake, suspension, lights and structure repairs.</p>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1605106702842-13fe7f59ad41?auto=format&fit=crop&w=800&q=80" alt="Trailer Repair">
+        <div class="info">
+          <h3>Trailer Repairs</h3>
+          <p>Brakes, structure, suspension, lights & more.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Mobile Roadside Assistance</h3>
-        <p>24/7 emergency breakdown service at your location.</p>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1622901452830-f3ba814f1c47?auto=format&fit=crop&w=800&q=80" alt="Roadside">
+        <div class="info">
+          <h3>Mobile Roadside Assistance</h3>
+          <p>Emergency service anywhere, anytime — 24/7.</p>
+        </div>
       </div>
     </div>
 
     <h2>Certified Professionals</h2>
-    <div class="section">
+    <div class="grid">
       <div class="box">Certified Truck Technicians</div>
       <div class="box">Certified Heavy Machinery Experts</div>
       <div class="box">PEP Inspectors</div>
@@ -179,7 +202,7 @@
     </div>
 
     <h2>Service Areas</h2>
-    <div class="section">
+    <div class="grid">
       <div class="box">Vaudreuil-Soulanges</div>
       <div class="box">Montréal</div>
       <div class="box">Laval</div>
@@ -188,18 +211,16 @@
       <div class="box">Montérégie</div>
     </div>
 
-    <div class="section" style="text-align:center; background:#e0b100; color:#000;">
-      <h2 style="margin-top: 0;">24/7 Emergency Service</h2>
+    <section class="contact">
+      <h3>24/7 Emergency Service</h3>
       <p>Call us anytime</p>
       <p><strong>Phone:</strong> 450 999-2221</p>
       <p><strong>Email:</strong> ad.diesel@mail.com</p>
-    </div>
+    </section>
   </div>
 
-  <!-- French Content -->
-  <div id="content-fr" style="display: none;">
-    <!-- Add French translations here -->
-  </div>
+  <!-- French Content (optional for now) -->
+  <div id="content-fr" style="display:none;"></div>
 
   <footer>
     <p>&copy; 2025 AD Diesel. All rights reserved.</p>
@@ -207,23 +228,20 @@
 
   <script>
     function switchLanguage(lang) {
-      document.getElementById("content-en").style.display = lang === "en" ? "block" : "none";
-      document.getElementById("content-fr").style.display = lang === "fr" ? "block" : "none";
+      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('content-fr').style.display = lang === 'fr' ? 'block' : 'none';
     }
 
     const userLang = navigator.language || navigator.userLanguage;
     switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
 
-    // Auto-scroll carousel
-    const carousel = document.getElementById('service-carousel');
-    let scrollPos = 0;
+    const carousel = document.getElementById('carousel');
     setInterval(() => {
-      scrollPos += 320;
-      if (scrollPos >= carousel.scrollWidth - carousel.clientWidth) {
-        scrollPos = 0;
+      carousel.scrollBy({ left: 320, behavior: 'smooth' });
+      if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5) {
+        setTimeout(() => carousel.scrollTo({ left: 0, behavior: 'smooth' }), 1000);
       }
-      carousel.scrollTo({ left: scrollPos, behavior: 'smooth' });
-    }, 3500);
+    }, 4000);
   </script>
 </body>
 </html>
