@@ -322,6 +322,13 @@ html, body {
 
   // Wait for layout AND images to fully load
   window.addEventListener('load', () => {
+    const track = document.querySelector('.carousel-track');
+    const firstCard = track.querySelector('.service-card');
+
+    if (firstCard) {
+      const offset = (track.clientWidth - firstCard.offsetWidth) / 2;
+      track.scrollLeft = firstCard.offsetLeft - offset;
+    }
 
     startCarousel();
   });
