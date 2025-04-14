@@ -64,20 +64,24 @@
       cursor: pointer;
     }
 
-    .pitch {
-      background-color: #000;
-      padding: 2rem 1.5rem;
-      text-align: center;
-    }
+.pitch {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6); /* semi-transparent background */
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  z-index: 2;
+}
 
-    .pitch p {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #f2f2f2;
-      margin: 0 auto;
-      line-height: 1.6;
-      max-width: 800px;
-    }
+.pitch p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f2f2f2;
+  margin: 0;
+}
 
     .top-image img {
       width: 100%;
