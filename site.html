@@ -280,48 +280,50 @@
     <p>&copy; 2025 AD Diesel. All rights reserved.</p>
   </footer>
 
-  <script>
-    function switchLanguage(lang) {
-      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
-      document.getElementById('content-fr').style.display = lang === 'fr' ? 'block' : 'none';
-    }
+<script>
+  function switchLanguage(lang) {
+    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+    document.getElementById('content-fr').style.display = lang === 'fr' ? 'block' : 'none';
+  }
 
-    const userLang = navigator.language || navigator.userLanguage;
-    switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
+  const userLang = navigator.language || navigator.userLanguage;
+  switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
 
-    const carousel = document.getElementById('carousel');
-    const scrollStep = 320;
-    const scrollDelay = 4000;
-    let interval;
+  const carousel = document.getElementById('carousel');
+  const scrollStep = 320;
+  const scrollDelay = 4000;
+  let interval;
 
-    function startCarousel() {
-      interval = setInterval(() => {
-        const atEnd = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5;
-        if (atEnd) {
-          carousel.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
-        }
-      }, scrollDelay);
-    }
-
-    function stopCarousel() {
-      clearInterval(interval);
-    }
-
-    carousel.addEventListener('mouseenter', stopCarousel);
-    carousel.addEventListener('mouseleave', startCarousel);
-    carousel.addEventListener('touchstart', stopCarousel);
-    carousel.addEventListener('touchend', startCarousel);
-
-    window.addEventListener('load', () => {
-      const firstCard = carousel.querySelector('.service-card');
-      if (firstCard) {
-        const offset = (carousel.clientWidth - firstCard.offsetWidth) / 2;
-        carousel.scrollLeft = firstCard.offsetLeft - offset;
+  function startCarousel() {
+    stopCarousel(); // Clear any existing intervals
+    interval = setInterval(() => {
+      const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+      const atEnd = carousel.scrollLeft >= maxScrollLeft - 5;
+      if (atEnd) {
+        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
       }
-      startCarousel();
-    });
-  </script>
+    }, scrollDelay);
+  }
+
+  function stopCarousel() {
+    if (interval) clearInterval(interval);
+  }
+
+  carousel.addEventListener('mouseenter', stopCarousel);
+  carousel.addEventListener('mouseleave', startCarousel);
+  carousel.addEventListener('touchstart', stopCarousel);
+  carousel.addEventListener('touchend', startCarousel);
+
+  window.addEventListener('load', () => {
+    const firstCard = carousel.querySelector('.service-card');
+    if (firstCard) {
+      const offset = (carousel.clientWidth - firstCard.offsetWidth) / 2;
+      carousel.scrollLeft = firstCard.offsetLeft - offset;
+    }
+    startCarousel();
+  });
+</script>
 </body>
 </html>
