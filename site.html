@@ -318,25 +318,15 @@
   carousel.addEventListener('touchstart', stopCarousel);
   carousel.addEventListener('touchend', startCarousel);
 
-  // Dynamically center the first card on load
   window.addEventListener('load', () => {
-    const card = carousel.querySelector('.service-card');
-    if (card) {
-      const cardWidth = card.offsetWidth;
-      const offset = (carousel.clientWidth - cardWidth) / 2;
-      carousel.scrollTo({ left: offset, behavior: 'auto' });
+    const firstCard = carousel.querySelector('.service-card');
+    if (firstCard) {
+      const offset = (carousel.clientWidth - firstCard.offsetWidth) / 2;
+      carousel.scrollLeft = firstCard.offsetLeft - offset;
     }
-    startCarousel();
-    window.addEventListener('load', () => {
-  const carousel = document.getElementById('carousel');
-  const firstCard = carousel.querySelector('.service-card');
 
-  if (firstCard) {
-    const offset = (carousel.clientWidth - firstCard.offsetWidth) / 2;
-    carousel.scrollLeft = firstCard.offsetLeft - offset;
-  }
-});
+    startCarousel(); // Start scrolling AFTER centering
   });
-</script>
+</script>script>
 </body>
 </html>
