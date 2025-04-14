@@ -64,27 +64,30 @@
       cursor: pointer;
     }
 
-    .pitch {
-      background-color: #000;
-      padding: 2rem 1.5rem;
-      text-align: center;
-    }
+.top-image {
+  position: relative;
+  width: 100%;
+  margin-top: 55px; /* same as top-bar height */
+}
 
-    .pitch p {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #f2f2f2;
-      margin: 0 auto;
-      line-height: 1.6;
-      max-width: 800px;
-    }
+.pitch {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  z-index: 2;
+}
 
-    .top-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
+.pitch p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f2f2f2;
+  margin: 0;
+}
 
     h2 {
       text-align: center;
