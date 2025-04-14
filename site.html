@@ -284,49 +284,49 @@
     <p>&copy; 2025 AD Diesel. All rights reserved.</p>
   </footer>
 
-  <script>
-    function switchLanguage(lang) {
-      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
-      const fr = document.getElementById('content-fr');
-      if (fr) fr.style.display = lang === 'fr' ? 'block' : 'none';
+<script>
+  function switchLanguage(lang) {
+    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+    const fr = document.getElementById('content-fr');
+    if (fr) fr.style.display = lang === 'fr' ? 'block' : 'none';
+  }
+
+  const userLang = navigator.language || navigator.userLanguage;
+  switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
+
+  const track = document.getElementById('carousel');
+  const cardWidth = 316; // 300px card + 16px gap
+  let autoScrollInterval;
+
+  function smoothAutoScroll() {
+    if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
+      track.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      const newScroll = track.scrollLeft + cardWidth;
+      track.scrollTo({ left: newScroll, behavior: 'smooth' });
     }
+  }
 
-    const userLang = navigator.language || navigator.userLanguage;
-    switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
+  function startAutoScroll() {
+    autoScrollInterval = setInterval(smoothAutoScroll, 4000);
+  }
 
-    const track = document.getElementById('carousel');
-    const scrollStep = 320;
-    const scrollDelay = 4000;
-    let interval;
+  function stopAutoScroll() {
+    clearInterval(autoScrollInterval);
+  }
 
-    function autoScroll() {
-      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
-        track.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        track.scrollBy({ left: scrollStep, behavior: 'smooth' });
-      }
-    }
+  function restartAutoScrollAfterDelay() {
+    stopAutoScroll();
+    setTimeout(startAutoScroll, 5000);
+  }
 
-    function startCarousel() {
-      interval = setInterval(autoScroll, scrollDelay);
-    }
+  track.addEventListener('mouseenter', stopAutoScroll);
+  track.addEventListener('mouseleave', startAutoScroll);
+  track.addEventListener('touchstart', stopAutoScroll);
+  track.addEventListener('touchend', restartAutoScrollAfterDelay);
+  track.addEventListener('scroll', restartAutoScrollAfterDelay);
 
-    function stopCarousel() {
-      clearInterval(interval);
-    }
-
-    function pauseThenRestartCarousel() {
-      stopCarousel();
-      setTimeout(startCarousel, 5000);
-    }
-
-    track.addEventListener('mouseenter', stopCarousel);
-    track.addEventListener('mouseleave', startCarousel);
-    track.addEventListener('touchstart', stopCarousel);
-    track.addEventListener('touchend', pauseThenRestartCarousel);
-    track.addEventListener('scroll', pauseThenRestartCarousel);
-
-    startCarousel();
-  </script>
+  startAutoScroll();
+</script>
 </body>
 </html>
