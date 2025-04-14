@@ -284,40 +284,42 @@
   </footer>
 
   <script>
-    function switchLanguage(lang) {
-      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
-      document.getElementById('content-fr').style.display = lang === 'fr' ? 'block' : 'none';
-    }
+  function switchLanguage(lang) {
+    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+    document.getElementById('content-fr').style.display = lang === 'fr' ? 'block' : 'none';
+  }
 
-    const userLang = navigator.language || navigator.userLanguage;
-    switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
+  const userLang = navigator.language || navigator.userLanguage;
+  switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
 
-    const carousel = document.getElementById('carousel');
-    const scrollStep = 320;
-    const scrollDelay = 4000;
-    let interval;
+  const carousel = document.getElementById('carousel');
+  const scrollStep = 320;
+  const scrollDelay = 4000;
+  let interval;
 
-    function startCarousel() {
-      interval = setInterval(() => {
-        const atEnd = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5;
-        if (atEnd) {
-          carousel.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
-        }
-      }, scrollDelay);
-    }
+  function startCarousel() {
+    interval = setInterval(() => {
+      const atEnd = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5;
+      if (atEnd) {
+        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
+      }
+    }, scrollDelay);
+  }
 
-    function stopCarousel() {
-      clearInterval(interval);
-    }
+  function stopCarousel() {
+    clearInterval(interval);
+  }
 
-    carousel.addEventListener('mouseenter', stopCarousel);
-    carousel.addEventListener('mouseleave', startCarousel);
-    carousel.addEventListener('touchstart', stopCarousel);
-    carousel.addEventListener('touchend', startCarousel);
+  // Auto/manual toggle
+  carousel.addEventListener('mouseenter', stopCarousel);
+  carousel.addEventListener('mouseleave', startCarousel);
+  carousel.addEventListener('touchstart', stopCarousel);
+  carousel.addEventListener('touchend', startCarousel);
 
-    startCarousel();
-  </script>
+  // Start carousel once DOM is loaded
+  window.addEventListener('load', startCarousel);
+</script>
 </body>
 </html>
