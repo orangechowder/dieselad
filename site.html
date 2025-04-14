@@ -177,7 +177,7 @@
 
   <h2>Our Services</h2>
   <div id="carousel" class="carousel-container">
-    <div id="track" class="carousel-track">
+    <div class="carousel-track">
       <div class="service-card">
         <img src="https://managedmobile.com/wp-content/uploads/2017/08/managed-mobile-roadside-truck-repair.jpg" alt="Semi Trailer Repair">
         <div class="info">
@@ -251,30 +251,40 @@
 <script>
   function switchLanguage(lang) {
     document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
-    document.getElementById('content-fr')?.style.display = lang === 'fr' ? 'block' : 'none';
+    const fr = document.getElementById('content-fr');
+    if (fr) fr.style.display = lang === 'fr' ? 'block' : 'none';
   }
 
   const userLang = navigator.language || navigator.userLanguage;
   switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
 
-  const track = document.getElementById('track');
-  let scrollAmount = 0;
-  const step = 320;
-  const delay = 4000;
+  const container = document.getElementById('carousel');
+  const track = document.querySelector('.carousel-track');
+  const scrollDelay = 4000;
+  let interval;
 
   function autoScroll() {
-    scrollAmount += step;
-    if (scrollAmount >= track.scrollWidth - track.clientWidth) {
-      scrollAmount = 0;
+    if (container.scrollLeft + container.offsetWidth >= container.scrollWidth - 5) {
+      container.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      container.scrollBy({ left: 320, behavior: 'smooth' });
     }
-    track.scrollTo({ left: scrollAmount, behavior: 'smooth' });
   }
 
-  let interval = setInterval(autoScroll, delay);
-  track.addEventListener('mouseenter', () => clearInterval(interval));
-  track.addEventListener('mouseleave', () => interval = setInterval(autoScroll, delay));
-  track.addEventListener('touchstart', () => clearInterval(interval));
-  track.addEventListener('touchend', () => interval = setInterval(autoScroll, delay));
+  function startCarousel() {
+    interval = setInterval(autoScroll, scrollDelay);
+  }
+
+  function stopCarousel() {
+    clearInterval(interval);
+  }
+
+  container.addEventListener('mouseenter', stopCarousel);
+  container.addEventListener('mouseleave', startCarousel);
+  container.addEventListener('touchstart', stopCarousel);
+  container.addEventListener('touchend', startCarousel);
+
+  startCarousel();
 </script>
 
 </body>
