@@ -327,6 +327,15 @@
       carousel.scrollTo({ left: offset, behavior: 'auto' });
     }
     startCarousel();
+    window.addEventListener('load', () => {
+  const carousel = document.getElementById('carousel');
+  const firstCard = carousel.querySelector('.service-card');
+
+  if (firstCard) {
+    const offset = (carousel.clientWidth - firstCard.offsetWidth) / 2;
+    carousel.scrollLeft = firstCard.offsetLeft - offset;
+  }
+});
   });
 </script>
 </body>
