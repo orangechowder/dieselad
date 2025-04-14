@@ -290,17 +290,23 @@
   switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
 
   const carousel = document.getElementById('carousel');
+  const cards = carousel.querySelectorAll('.service-card');
   const scrollStep = 320;
   const scrollDelay = 4000;
   let interval;
 
+  function centerFirstCard() {
+    if (cards.length === 0) return;
+    const firstCard = cards[0];
+    const offset = firstCard.offsetLeft - (carousel.offsetWidth - firstCard.offsetWidth) / 2;
+    carousel.scrollTo({ left: offset, behavior: 'auto' });
+  }
+
   function startCarousel() {
-    stopCarousel(); // Clear any existing intervals
+    stopCarousel();
     interval = setInterval(() => {
-      const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-      const atEnd = carousel.scrollLeft >= maxScrollLeft - 5;
-      if (atEnd) {
-        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+      if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5) {
+        centerFirstCard();
       } else {
         carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
       }
@@ -308,20 +314,18 @@
   }
 
   function stopCarousel() {
-    if (interval) clearInterval(interval);
+    clearInterval(interval);
   }
 
+  // Event listeners for pause/resume on hover and touch
   carousel.addEventListener('mouseenter', stopCarousel);
   carousel.addEventListener('mouseleave', startCarousel);
   carousel.addEventListener('touchstart', stopCarousel);
   carousel.addEventListener('touchend', startCarousel);
 
+  // Start everything after images load
   window.addEventListener('load', () => {
-    const firstCard = carousel.querySelector('.service-card');
-    if (firstCard) {
-      const offset = (carousel.clientWidth - firstCard.offsetWidth) / 2;
-      carousel.scrollLeft = firstCard.offsetLeft - offset;
-    }
+    centerFirstCard();
     startCarousel();
   });
 </script>
