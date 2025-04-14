@@ -7,10 +7,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
-    html, body { overflow-x: hidden; }
+    html, body { overflow-x: hidden; margin: 0; }
 
     body {
-      margin: 100px 0 0 0;
+      margin-top: 100px;
       font-family: 'Roboto', sans-serif;
       background-color: #000;
       color: #fff;
@@ -45,9 +45,6 @@
       font-size: 1rem;
       font-weight: bold;
       color: #000;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
     }
 
     .phone a {
@@ -76,7 +73,6 @@
     }
 
     .pitch {
-      background-color: transparent;
       padding: 2rem 1.5rem;
       text-align: center;
     }
@@ -100,7 +96,6 @@
     .carousel-container {
       overflow: hidden;
       position: relative;
-      padding: 0 1rem;
     }
 
     .carousel-track {
@@ -109,8 +104,8 @@
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
       gap: 1rem;
+      padding: 1rem calc(50vw - 150px);
       scroll-snap-type: x mandatory;
-      scroll-padding-left: 1rem;
     }
 
     .carousel-track::-webkit-scrollbar {
@@ -126,7 +121,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.4);
       display: flex;
       flex-direction: column;
-      scroll-snap-align: start;
+      scroll-snap-align: center;
     }
 
     .service-card img {
@@ -140,12 +135,12 @@
     }
 
     .info h3 {
-      margin-top: 0;
+      margin: 0;
       color: #e0b100;
     }
 
     .info p {
-      margin: 0.5rem 0 0;
+      margin-top: 0.5rem;
       color: #f2f2f2;
     }
 
@@ -187,7 +182,6 @@
   </style>
 </head>
 <body>
-
   <div class="top-image">
     <img src="banner.PNG" alt="AD Diesel Banner">
   </div>
@@ -219,6 +213,7 @@
             <p>Axles, brakes, lights, and structure repairs done on-site.</p>
           </div>
         </div>
+
         <div class="service-card">
           <img src="https://nextlevel-semitruckrepair.com/images/mobile-semi-truck-repair-roadside-assistance.jpg" alt="Semi Truck Repair">
           <div class="info">
@@ -226,6 +221,7 @@
             <p>Mobile diagnostics, engine, and electrical repairs — wherever your truck stops.</p>
           </div>
         </div>
+
         <div class="service-card">
           <img src="https://tse2.mm.bing.net/th?id=OIP.rZmTOLbiNx5Et67MLc_YRAHaE8&pid=Api" alt="Roadside Assistance">
           <div class="info">
@@ -233,6 +229,7 @@
             <p>Emergency mobile repair for trucks, trailers, and heavy-duty units.</p>
           </div>
         </div>
+
         <div class="service-card">
           <img src="https://tse4.mm.bing.net/th?id=OIP.N6CkBppGpeMLszyJx7nFwgHaE7&pid=Api" alt="Heavy Equipment Repair">
           <div class="info">
@@ -240,6 +237,7 @@
             <p>Field service for excavators, loaders, graders, and more.</p>
           </div>
         </div>
+
         <div class="service-card">
           <img src="fleet.jpg" alt="Fleet Management Service">
           <div class="info">
@@ -282,51 +280,48 @@
     <p>&copy; 2025 AD Diesel. All rights reserved.</p>
   </footer>
 
-<script>
-  function switchLanguage(lang) {
-    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
-    document.getElementById('content-fr').style.display = lang === 'fr' ? 'block' : 'none';
-  }
-
-  const userLang = navigator.language || navigator.userLanguage;
-  switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
-
-  const carousel = document.getElementById('carousel');
-  const scrollStep = 320;
-  const scrollDelay = 4000;
-  let interval;
-
-  function startCarousel() {
-    interval = setInterval(() => {
-      const atEnd = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5;
-      if (atEnd) {
-        carousel.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
-      }
-    }, scrollDelay);
-  }
-
-  function stopCarousel() {
-    clearInterval(interval);
-  }
-
-  carousel.addEventListener('mouseenter', stopCarousel);
-  carousel.addEventListener('mouseleave', startCarousel);
-  carousel.addEventListener('touchstart', stopCarousel);
-  carousel.addEventListener('touchend', startCarousel);
-
-  window.addEventListener('load', () => {
-    // Center first card
-    const firstCard = carousel.querySelector('.service-card');
-    if (firstCard) {
-      const offset = firstCard.offsetLeft - (carousel.clientWidth - firstCard.offsetWidth) / 2;
-      carousel.scrollLeft = offset;
+  <script>
+    function switchLanguage(lang) {
+      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('content-fr').style.display = lang === 'fr' ? 'block' : 'none';
     }
 
-    // Start auto scroll AFTER centering
-    startCarousel();
-  });
-</script>
+    const userLang = navigator.language || navigator.userLanguage;
+    switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
+
+    const carousel = document.getElementById('carousel');
+    const scrollStep = 320;
+    const scrollDelay = 4000;
+    let interval;
+
+    function startCarousel() {
+      interval = setInterval(() => {
+        const atEnd = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5;
+        if (atEnd) {
+          carousel.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
+        }
+      }, scrollDelay);
+    }
+
+    function stopCarousel() {
+      clearInterval(interval);
+    }
+
+    carousel.addEventListener('mouseenter', stopCarousel);
+    carousel.addEventListener('mouseleave', startCarousel);
+    carousel.addEventListener('touchstart', stopCarousel);
+    carousel.addEventListener('touchend', startCarousel);
+
+    window.addEventListener('load', () => {
+      const firstCard = carousel.querySelector('.service-card');
+      if (firstCard) {
+        const offset = (carousel.clientWidth - firstCard.offsetWidth) / 2;
+        carousel.scrollLeft = firstCard.offsetLeft - offset;
+      }
+      startCarousel();
+    });
+  </script>
 </body>
 </html>
