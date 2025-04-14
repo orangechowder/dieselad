@@ -86,14 +86,20 @@
       margin-top: 2rem;
     }
 
-    .carousel-container {
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      display: flex;
-      gap: 1rem;
-      padding: 1rem;
-      margin-top: 1rem;
-    }
+.carousel-container {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track {
+  display: flex;
+}
 
     .service-card {
       flex: 0 0 300px;
@@ -196,8 +202,9 @@
   <p>Expert repairs, wherever the road takes you.<br>You roll. We repair. 24 hours. 7 days.</p>
 </section>
     <h2>Our Services</h2>
-<div class="carousel-container" id="carousel">
-  <!-- Semi-Trailer Repairs -->
+<div id="carousel" class="carousel-container">
+  <div class="carousel-track">
+      <!-- Semi-Trailer Repairs -->
   <div class="service-card">
     <img src="https://managedmobile.com/wp-content/uploads/2017/08/managed-mobile-roadside-truck-repair.jpg" alt="Semi Trailer Repair">
     <div class="info">
