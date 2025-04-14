@@ -81,14 +81,19 @@
 
 .pitch {
   position: absolute;
-  top: 50%;
+  bottom: 10%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   background-color: rgba(0, 0, 0, 0.6);
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
   text-align: center;
-  z-index: 2;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 90%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 @media (max-width: 768px) {
   .pitch {
@@ -215,7 +220,8 @@
 <div class="top-image">
   <img src="banner.PNG" alt="AD Diesel Banner">
   <div class="pitch">
-    <p>Expert repairs, wherever the road takes you.<br>You roll. We repair. 24 hours. 7 days.</p>
+    <p>Expert repairs, wherever the road takes you.<br>
+      You roll. We repair. 24 hours. 7 days.</p>
   </div>
 </div>
   </div>
