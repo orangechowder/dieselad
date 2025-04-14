@@ -259,15 +259,15 @@
   switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
 
   const container = document.getElementById('carousel');
-  const track = document.querySelector('.carousel-track');
   const scrollDelay = 4000;
+  const scrollStep = 320;
   let interval;
 
   function autoScroll() {
-    if (container.scrollLeft + container.offsetWidth >= container.scrollWidth - 5) {
+    if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 5) {
       container.scrollTo({ left: 0, behavior: 'smooth' });
     } else {
-      container.scrollBy({ left: 320, behavior: 'smooth' });
+      container.scrollBy({ left: scrollStep, behavior: 'smooth' });
     }
   }
 
@@ -279,10 +279,18 @@
     clearInterval(interval);
   }
 
+  function pauseThenRestartCarousel() {
+    stopCarousel();
+    setTimeout(() => {
+      startCarousel();
+    }, 5000); // waits 5 seconds before restarting
+  }
+
   container.addEventListener('mouseenter', stopCarousel);
   container.addEventListener('mouseleave', startCarousel);
   container.addEventListener('touchstart', stopCarousel);
-  container.addEventListener('touchend', startCarousel);
+  container.addEventListener('touchend', pauseThenRestartCarousel);
+  container.addEventListener('scroll', pauseThenRestartCarousel);
 
   startCarousel();
 </script>
