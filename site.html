@@ -318,15 +318,17 @@
   carousel.addEventListener('touchstart', stopCarousel);
   carousel.addEventListener('touchend', startCarousel);
 
+  // Wait for layout AND images to fully load
   window.addEventListener('load', () => {
     const firstCard = carousel.querySelector('.service-card');
     if (firstCard) {
-      const offset = (carousel.clientWidth - firstCard.offsetWidth) / 2;
-      carousel.scrollLeft = firstCard.offsetLeft - offset;
+      setTimeout(() => {
+        const offset = (carousel.clientWidth - firstCard.offsetWidth) / 2;
+        carousel.scrollLeft = firstCard.offsetLeft - offset;
+      }, 100); // slight delay ensures image loading/layout is complete
     }
-
-    startCarousel(); // Start scrolling AFTER centering
+    startCarousel();
   });
-</script>script>
+</script>
 </body>
 </html>
