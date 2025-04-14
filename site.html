@@ -64,29 +64,27 @@
       cursor: pointer;
     }
 
-.top-image {
-  position: relative;
-  width: 100%;
-}
+    .pitch {
+      background-color: #000;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
 
-.pitch {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.6); /* semi-transparent background */
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  text-align: center;
-  z-index: 2;
-}
+    .pitch p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #f2f2f2;
+      margin: 0 auto;
+      line-height: 1.6;
+      max-width: 800px;
+    }
 
-.pitch p {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #f2f2f2;
-  margin: 0;
-}
+    .top-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
 
     h2 {
       text-align: center;
@@ -184,14 +182,6 @@
   </style>
 </head>
 <body>
-    <div id="content-en">
-<div class="top-image">
-  <img src="banner.PNG" alt="AD Diesel Banner">
-  <div class="pitch">
-    <p>Expert repairs, wherever the road takes you.<br>You roll. We repair. 24 hours. 7 days.</p>
-  </div>
-</div>
-
   <div class="top-bar">
     <div class="logo-container">
       <img src="logo1.png" alt="AD Diesel Logo">
@@ -204,45 +194,49 @@
     </div>
   </div>
 
+  <div id="content-en">
+    <section class="pitch">
+      <p>Expert repairs, wherever the road takes you.<br>You roll. We repair. 24 hours. 7 days.</p>
+    </section>
 
+    <div class="top-image">
+      <img src="banner.PNG" alt="AD Diesel Banner">
+    </div>
 
     <h2>Our Services</h2>
     <div class="carousel-container">
       <div class="carousel-track" id="carousel">
+        <!-- Service Cards -->
         <div class="service-card">
-          <img src="https://managedmobile.com/wp-content/uploads/2017/08/managed-mobile-roadside-truck-repair.jpg" alt="Semi Trailer Repair">
+          <img src="https://managedmobile.com/wp-content/uploads/2017/08/managed-mobile-roadside-truck-repair.jpg">
           <div class="info">
             <h3>Semi-Trailer Repairs</h3>
             <p>Axles, brakes, lights, and structure repairs done on-site.</p>
           </div>
         </div>
-
         <div class="service-card">
-          <img src="https://nextlevel-semitruckrepair.com/images/mobile-semi-truck-repair-roadside-assistance.jpg" alt="Semi Truck Repair">
+          <img src="https://nextlevel-semitruckrepair.com/images/mobile-semi-truck-repair-roadside-assistance.jpg">
           <div class="info">
             <h3>Semi-Truck Repairs</h3>
             <p>Mobile diagnostics, engine, and electrical repairs — wherever your truck stops.</p>
           </div>
         </div>
-
         <div class="service-card">
-          <img src="https://tse2.mm.bing.net/th?id=OIP.rZmTOLbiNx5Et67MLc_YRAHaE8&pid=Api" alt="Roadside Assistance">
+          <img src="https://tse2.mm.bing.net/th?id=OIP.rZmTOLbiNx5Et67MLc_YRAHaE8&pid=Api">
           <div class="info">
             <h3>24/7 Roadside Assistance</h3>
             <p>Emergency mobile repair for trucks, trailers, and heavy-duty units.</p>
           </div>
         </div>
-
         <div class="service-card">
-          <img src="https://tse4.mm.bing.net/th?id=OIP.N6CkBppGpeMLszyJx7nFwgHaE7&pid=Api" alt="Heavy Equipment Repair">
+          <img src="https://tse4.mm.bing.net/th?id=OIP.N6CkBppGpeMLszyJx7nFwgHaE7&pid=Api">
           <div class="info">
             <h3>Heavy Equipment Repairs</h3>
             <p>Field service for excavators, loaders, graders, and more.</p>
           </div>
         </div>
-
         <div class="service-card">
-          <img src="fleet.jpg" alt="Fleet Management Service">
+          <img src="fleet.jpg">
           <div class="info">
             <h3>Fleet Management Service</h3>
             <p>Track, maintain, and manage your entire fleet effortlessly.</p>
@@ -283,54 +277,52 @@
     <p>&copy; 2025 AD Diesel. All rights reserved.</p>
   </footer>
 
-<script>
-  function switchLanguage(lang) {
-    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
-    document.getElementById('content-fr').style.display = lang === 'fr' ? 'block' : 'none';
-  }
+  <script>
+    function switchLanguage(lang) {
+      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('content-fr').style.display = lang === 'fr' ? 'block' : 'none';
+    }
 
-  const userLang = navigator.language || navigator.userLanguage;
-  switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
+    const userLang = navigator.language || navigator.userLanguage;
+    switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
 
-  const carousel = document.getElementById('carousel');
-  const cards = carousel.querySelectorAll('.service-card');
-  const scrollStep = 320;
-  const scrollDelay = 4000;
-  let interval;
+    const carousel = document.getElementById('carousel');
+    const cards = carousel.querySelectorAll('.service-card');
+    const scrollStep = 320;
+    const scrollDelay = 4000;
+    let interval;
 
-  function centerFirstCard() {
-    if (cards.length === 0) return;
-    const firstCard = cards[0];
-    const offset = firstCard.offsetLeft - (carousel.offsetWidth - firstCard.offsetWidth) / 2;
-    carousel.scrollTo({ left: offset, behavior: 'auto' });
-  }
+    function centerFirstCard() {
+      if (cards.length === 0) return;
+      const firstCard = cards[0];
+      const offset = firstCard.offsetLeft - (carousel.offsetWidth - firstCard.offsetWidth) / 2;
+      carousel.scrollTo({ left: offset, behavior: 'auto' });
+    }
 
-  function startCarousel() {
-    stopCarousel();
-    interval = setInterval(() => {
-      if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5) {
-        centerFirstCard();
-      } else {
-        carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
-      }
-    }, scrollDelay);
-  }
+    function startCarousel() {
+      stopCarousel();
+      interval = setInterval(() => {
+        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5) {
+          centerFirstCard();
+        } else {
+          carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
+        }
+      }, scrollDelay);
+    }
 
-  function stopCarousel() {
-    clearInterval(interval);
-  }
+    function stopCarousel() {
+      clearInterval(interval);
+    }
 
-  // Event listeners for pause/resume on hover and touch
-  carousel.addEventListener('mouseenter', stopCarousel);
-  carousel.addEventListener('mouseleave', startCarousel);
-  carousel.addEventListener('touchstart', stopCarousel);
-  carousel.addEventListener('touchend', startCarousel);
+    carousel.addEventListener('mouseenter', stopCarousel);
+    carousel.addEventListener('mouseleave', startCarousel);
+    carousel.addEventListener('touchstart', stopCarousel);
+    carousel.addEventListener('touchend', startCarousel);
 
-  // Start everything after images load
-  window.addEventListener('load', () => {
-    centerFirstCard();
-    startCarousel();
-  });
-</script>
+    window.addEventListener('load', () => {
+      centerFirstCard();
+      startCarousel();
+    });
+  </script>
 </body>
 </html>
