@@ -108,18 +108,20 @@
       display: none;
     }
 
-    .carousel-track {
-      display: flex;
-      gap: 20px;
-    }
+.carousel-track {
+  display: flex;
+  gap: 1rem; /* This adds space between cards */
+  padding: 1rem 0; /* Top/bottom spacing inside the track */
+}
 
-    .service-card {
-      flex: 0 0 300px;
-      background-color: #1a1a1a;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    }
+.service-card {
+  flex: 0 0 auto;
+  width: 300px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
 
     .service-card img {
       width: 100%;
