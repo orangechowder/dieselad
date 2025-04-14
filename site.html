@@ -285,40 +285,49 @@
   </footer>
 
 <script>
+  function switchLanguage(lang) {
+    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+    document.getElementById('content-fr').style.display = lang === 'fr' ? 'block' : 'none';
+  }
+
+  const userLang = navigator.language || navigator.userLanguage;
+  switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
+
   const carousel = document.getElementById('carousel');
-  const scrollStep = 316; // 300px card + 16px gap
+  const scrollStep = 320;
   const scrollDelay = 4000;
-  let autoScrollInterval;
+  let interval;
 
-  function autoScroll() {
-    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+  function startCarousel() {
+    interval = setInterval(() => {
+      const atEnd = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5;
+      if (atEnd) {
+        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
+      }
+    }, scrollDelay);
+  }
 
-    if (carousel.scrollLeft + scrollStep >= maxScroll) {
-      carousel.scrollTo({ left: 0, behavior: 'smooth' });
-    } else {
-      carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
+  function stopCarousel() {
+    clearInterval(interval);
+  }
+
+  carousel.addEventListener('mouseenter', stopCarousel);
+  carousel.addEventListener('mouseleave', startCarousel);
+  carousel.addEventListener('touchstart', stopCarousel);
+  carousel.addEventListener('touchend', startCarousel);
+
+  // Dynamically center the first card on load
+  window.addEventListener('load', () => {
+    const card = carousel.querySelector('.service-card');
+    if (card) {
+      const cardWidth = card.offsetWidth;
+      const offset = (carousel.clientWidth - cardWidth) / 2;
+      carousel.scrollTo({ left: offset, behavior: 'auto' });
     }
-  }
-
-  function startAutoScroll() {
-    stopAutoScroll(); // avoid double intervals
-    autoScrollInterval = setInterval(autoScroll, scrollDelay);
-  }
-
-  function stopAutoScroll() {
-    clearInterval(autoScrollInterval);
-  }
-
-  carousel.addEventListener('mouseenter', stopAutoScroll);
-  carousel.addEventListener('mouseleave', startAutoScroll);
-  carousel.addEventListener('touchstart', stopAutoScroll);
-  carousel.addEventListener('touchend', () => {
-    setTimeout(startAutoScroll, scrollDelay);
+    startCarousel();
   });
-
-  // Start when page loads
-carousel.scrollTo({ left: 80, behavior: 'auto' }); // Adjust '80' as needed
-  startAutoScroll();
 </script>
 </body>
 </html>
