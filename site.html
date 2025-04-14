@@ -67,7 +67,17 @@
 .top-image {
   position: relative;
   width: 100%;
-  margin-top: 55px; /* same as top-bar height */
+  margin-top: 55px; /* push it under the top bar */
+  max-height: 400px; /* optional max height to avoid it being too tall */
+  overflow: hidden;
+  background-color: #000; /* fallback background */
+}
+
+.top-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .pitch {
