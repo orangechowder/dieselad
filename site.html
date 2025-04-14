@@ -7,27 +7,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
+
     body {
       margin: 100px 0 0 0;
       font-family: 'Roboto', sans-serif;
       background-color: #000;
       color: #fff;
     }
-.pitch {
-  background-color: transparent;
-  padding: 2rem 1.5rem;
-  text-align: center;
-}
 
-.pitch p {
-  font-size: 1rem; /* or whatever size you want */
-  font-weight: 600; /* SemiBold */
-  color: #f2f2f2;
-  line-height: 1.6;
-  text-align: center;
-  margin: 0 auto;
-  max-width: 800px;
-}
     .top-bar {
       background-color: #e0b100;
       height: 55px;
@@ -79,6 +66,29 @@
       cursor: pointer;
     }
 
+    .top-image img,
+    .contact-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .pitch {
+      background-color: transparent;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .pitch p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #f2f2f2;
+      line-height: 1.6;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+
     h2 {
       text-align: center;
       color: #e0b100;
@@ -86,24 +96,25 @@
       margin-top: 2rem;
     }
 
-.carousel-container {
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  white-space: nowrap;
-}
+    .carousel-container {
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+      padding: 0 1rem;
+    }
 
-.carousel-container::-webkit-scrollbar {
-  display: none;
-}
+    .carousel-container::-webkit-scrollbar {
+      display: none;
+    }
 
-.carousel-track {
-  display: flex;
-}
+    .carousel-track {
+      display: flex;
+      gap: 20px;
+    }
 
     .service-card {
       flex: 0 0 300px;
-      scroll-snap-align: start;
       background-color: #1a1a1a;
       border-radius: 10px;
       overflow: hidden;
@@ -147,22 +158,16 @@
       color: #fff;
     }
 
-.contact {
-  text-align: center;
-  background-color: #e0b100;
-  color: #000;
-  padding: 0.25rem 1rem;
-}
+    .contact {
+      text-align: center;
+      background-color: #e0b100;
+      color: #000;
+      padding: 0.25rem 1rem;
+    }
 
-.contact p {
-  margin: 0.3rem 0;
-}
-    .contact-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
+    .contact p {
+      margin: 0.3rem 0;
+    }
 
     footer {
       background-color: #111;
@@ -171,19 +176,14 @@
       padding: 0.5rem;
       font-size: 0.9rem;
     }
-.top-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-    .carousel-container::-webkit-scrollbar { display: none; }
   </style>
 </head>
 <body>
-<div class="top-image">
-  <img src="banner.PNG" alt="AD Diesel Banner">
-</div>
+
+  <div class="top-image">
+    <img src="banner.PNG" alt="AD Diesel Banner">
+  </div>
+
   <div class="top-bar">
     <div class="logo-container">
       <img src="logo1.png" alt="AD Diesel Logo">
@@ -196,58 +196,56 @@
     </div>
   </div>
 
-  <!-- English Content -->
   <div id="content-en">
-<section class="pitch">
-  <p>Expert repairs, wherever the road takes you.<br>You roll. We repair. 24 hours. 7 days.</p>
-</section>
+    <section class="pitch">
+      <p>Expert repairs, wherever the road takes you.<br>You roll. We repair. 24 hours. 7 days.</p>
+    </section>
+
     <h2>Our Services</h2>
-<div id="carousel" class="carousel-container">
-  <div class="carousel-track">
-      <!-- Semi-Trailer Repairs -->
-  <div class="service-card">
-    <img src="https://managedmobile.com/wp-content/uploads/2017/08/managed-mobile-roadside-truck-repair.jpg" alt="Semi Trailer Repair">
-    <div class="info">
-      <h3>Semi-Trailer Repairs</h3>
-      <p>Axles, brakes, lights, and structure repairs done on-site.</p>
-    </div>
-  </div>
+    <div id="carousel" class="carousel-container">
+      <div class="carousel-track">
+        <!-- Service cards -->
+        <div class="service-card">
+          <img src="https://managedmobile.com/wp-content/uploads/2017/08/managed-mobile-roadside-truck-repair.jpg" alt="Semi Trailer Repair">
+          <div class="info">
+            <h3>Semi-Trailer Repairs</h3>
+            <p>Axles, brakes, lights, and structure repairs done on-site.</p>
+          </div>
+        </div>
 
-  <!-- Semi-Truck Repairs -->
-  <div class="service-card">
-    <img src="https://nextlevel-semitruckrepair.com/images/mobile-semi-truck-repair-roadside-assistance.jpg" alt="Semi Truck Repair">
-    <div class="info">
-      <h3>Semi-Truck Repairs</h3>
-      <p>Mobile diagnostics, engine, and electrical repairs — wherever your truck stops.</p>
-    </div>
-  </div>
+        <div class="service-card">
+          <img src="https://nextlevel-semitruckrepair.com/images/mobile-semi-truck-repair-roadside-assistance.jpg" alt="Semi Truck Repair">
+          <div class="info">
+            <h3>Semi-Truck Repairs</h3>
+            <p>Mobile diagnostics, engine, and electrical repairs — wherever your truck stops.</p>
+          </div>
+        </div>
 
-  <!-- Roadside Assistance -->
-  <div class="service-card">
-    <img src="https://tse2.mm.bing.net/th?id=OIP.rZmTOLbiNx5Et67MLc_YRAHaE8&pid=Api" alt="Roadside Assistance">
-    <div class="info">
-      <h3>24/7 Roadside Assistance</h3>
-      <p>Emergency mobile repair for trucks, trailers, and heavy-duty units.</p>
-    </div>
-  </div>
+        <div class="service-card">
+          <img src="https://tse2.mm.bing.net/th?id=OIP.rZmTOLbiNx5Et67MLc_YRAHaE8&pid=Api" alt="Roadside Assistance">
+          <div class="info">
+            <h3>24/7 Roadside Assistance</h3>
+            <p>Emergency mobile repair for trucks, trailers, and heavy-duty units.</p>
+          </div>
+        </div>
 
-  <!-- Heavy Equipment Repairs -->
-  <div class="service-card">
-    <img src="https://tse4.mm.bing.net/th?id=OIP.N6CkBppGpeMLszyJx7nFwgHaE7&pid=Api" alt="Heavy Equipment Repair">
-    <div class="info">
-      <h3>Heavy Equipment Repairs</h3>
-      <p>Field service for excavators, loaders, graders, and more.</p>
+        <div class="service-card">
+          <img src="https://tse4.mm.bing.net/th?id=OIP.N6CkBppGpeMLszyJx7nFwgHaE7&pid=Api" alt="Heavy Equipment Repair">
+          <div class="info">
+            <h3>Heavy Equipment Repairs</h3>
+            <p>Field service for excavators, loaders, graders, and more.</p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="fleet.jpg" alt="Fleet Management Service">
+          <div class="info">
+            <h3>Fleet Management Service</h3>
+            <p>Track, maintain, and manage your entire fleet effortlessly.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-    <!-- Fleet Management Service -->
-  <div class="service-card">
-    <img src="fleet.jpg" alt="Fleet Management Service">
-    <div class="info">
-      <h3>Fleet Management Service</h3>
-      <p>Stay in control! Track, maintain, and manage your entire fleet effortlessly with one powerful service.</p>
-    </div>
-  </div>
-</div>
 
     <h2>Certified Professionals</h2>
     <div class="grid">
@@ -265,18 +263,17 @@
       <div class="box">Rive-Sud</div>
       <div class="box">Montérégie</div>
     </div>
-<div class="contact-image">
-  <img src="building.PNG" alt="AD Diesel Building">
-</div>
+
+    <div class="contact-image">
+      <img src="building.PNG" alt="AD Diesel Building">
+    </div>
+
     <section class="contact">
       <h3>24/7 Emergency Service</h3>
       <p><strong>Phone:</strong> 450 999-2221</p>
       <p><strong>Email:</strong> ad.diesel@mail.com</p>
     </section>
   </div>
-
-  <!-- French Content (optional for now) -->
-  <div id="content-fr" style="display:none;"></div>
 
   <footer>
     <p>&copy; 2025 AD Diesel. All rights reserved.</p>
@@ -292,12 +289,31 @@
     switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
 
     const carousel = document.getElementById('carousel');
-    setInterval(() => {
-      carousel.scrollBy({ left: 320, behavior: 'smooth' });
-      if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5) {
-        setTimeout(() => carousel.scrollTo({ left: 0, behavior: 'smooth' }), 1000);
-      }
-    }, 4000);
+    const scrollStep = 320;
+    const scrollDelay = 4000;
+    let interval;
+
+    function startCarousel() {
+      interval = setInterval(() => {
+        const atEnd = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5;
+        if (atEnd) {
+          carousel.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
+        }
+      }, scrollDelay);
+    }
+
+    function stopCarousel() {
+      clearInterval(interval);
+    }
+
+    carousel.addEventListener('mouseenter', stopCarousel);
+    carousel.addEventListener('mouseleave', startCarousel);
+    carousel.addEventListener('touchstart', stopCarousel);
+    carousel.addEventListener('touchend', startCarousel);
+
+    startCarousel();
   </script>
 </body>
 </html>
