@@ -317,14 +317,14 @@
   carousel.addEventListener('touchend', startCarousel);
 
   window.addEventListener('load', () => {
-    // Center first card on load
+    // Center first card
     const firstCard = carousel.querySelector('.service-card');
     if (firstCard) {
       const offset = firstCard.offsetLeft - (carousel.clientWidth - firstCard.offsetWidth) / 2;
       carousel.scrollLeft = offset;
     }
 
-    // Start the auto-scroll
+    // Start auto scroll AFTER centering
     startCarousel();
   });
 </script>
