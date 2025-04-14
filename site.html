@@ -285,47 +285,38 @@
   </footer>
 
 <script>
-  function switchLanguage(lang) {
-    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
-    const fr = document.getElementById('content-fr');
-    if (fr) fr.style.display = lang === 'fr' ? 'block' : 'none';
-  }
-
-  const userLang = navigator.language || navigator.userLanguage;
-  switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
-
-  const track = document.getElementById('carousel');
-  const cardWidth = 316; // 300px card + 16px gap
+  const carousel = document.getElementById('carousel');
+  const scrollStep = 316; // 300px card + 16px gap
+  const scrollDelay = 4000;
   let autoScrollInterval;
 
-  function smoothAutoScroll() {
-    if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
-      track.scrollTo({ left: 0, behavior: 'smooth' });
+  function autoScroll() {
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+    if (carousel.scrollLeft + scrollStep >= maxScroll) {
+      carousel.scrollTo({ left: 0, behavior: 'smooth' });
     } else {
-      const newScroll = track.scrollLeft + cardWidth;
-      track.scrollTo({ left: newScroll, behavior: 'smooth' });
+      carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
     }
   }
 
   function startAutoScroll() {
-    autoScrollInterval = setInterval(smoothAutoScroll, 4000);
+    stopAutoScroll(); // avoid double intervals
+    autoScrollInterval = setInterval(autoScroll, scrollDelay);
   }
 
   function stopAutoScroll() {
     clearInterval(autoScrollInterval);
   }
 
-  function restartAutoScrollAfterDelay() {
-    stopAutoScroll();
-    setTimeout(startAutoScroll, 5000);
-  }
+  carousel.addEventListener('mouseenter', stopAutoScroll);
+  carousel.addEventListener('mouseleave', startAutoScroll);
+  carousel.addEventListener('touchstart', stopAutoScroll);
+  carousel.addEventListener('touchend', () => {
+    setTimeout(startAutoScroll, scrollDelay);
+  });
 
-  track.addEventListener('mouseenter', stopAutoScroll);
-  track.addEventListener('mouseleave', startAutoScroll);
-  track.addEventListener('touchstart', stopAutoScroll);
-  track.addEventListener('touchend', restartAutoScrollAfterDelay);
-  track.addEventListener('scroll', restartAutoScrollAfterDelay);
-
+  // Start when page loads
   startAutoScroll();
 </script>
 </body>
