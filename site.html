@@ -107,7 +107,7 @@
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
       gap: 1rem;
-      padding: 1rem;
+      padding: 1rem calc(50vw - 150px);
       scroll-snap-type: x mandatory;
     }
 
@@ -320,13 +320,7 @@
 
   // Wait for layout AND images to fully load
   window.addEventListener('load', () => {
-    const firstCard = carousel.querySelector('.service-card');
-    if (firstCard) {
-      setTimeout(() => {
-        const offset = (carousel.clientWidth - firstCard.offsetWidth) / 2;
-        carousel.scrollLeft = firstCard.offsetLeft - offset;
-      }, 100); // slight delay ensures image loading/layout is complete
-    }
+
     startCarousel();
   });
 </script>
