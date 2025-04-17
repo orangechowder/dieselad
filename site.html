@@ -84,16 +84,21 @@
   object-fit: cover;
 }
 
+.pitch-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
 .pitch-text {
-  border: 4px solid #f2b300;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 2rem;
-  color: #f2f2f2;
-  text-align: center;
-  line-height: 2rem;
-  padding: 0.5rem 1rem;
-  display: inline-block;
-  margin: 1rem auto;
+  color: white;
+  background-color: black;
+  border: 4px solid #f2b300;
+  padding: 0.5rem 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 p.pitch-text {
   margin-bottom: 0;
@@ -222,9 +227,9 @@ p.pitch-text {
   <img src="banner.JPG" alt="AD Diesel Banner">
 </div>
 
-<p class="pitch-text">
-  DOWNTIME ENDS HERE.<br>
-</p>
+<div class="pitch-wrapper">
+  <div class="pitch-text">DOWNTIME ENDS HERE.</div>
+</div>
 
 
    
