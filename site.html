@@ -39,32 +39,34 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      text-align: right;
-      line-height: 1.2;
+      gap: 0.3rem;
     }
 
-    .phone {
-      font-size: 1rem;
-      font-weight: bold;
-      color: #000;
-    }
+.phone-button {
+  background-color: #000;        /* black background */
+  color: #fff;                   /* white text */
+  border-radius: 999px;          /* full rounded button */
+  padding: 0.4rem 1rem;          /* space inside the button */
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
 
-    .phone a {
-      color: #000;
-      text-decoration: none;
-    }
+.phone-button a {
+  color: #fff;
+  text-decoration: none;
+}
 
-    .lang-switch {
-      font-size: 0.9rem;
-      color: #000;
-    }
+.lang-switch {
+  font-size: 0.85rem;
+  color: #000;
+}
 
-    .lang-switch a {
-      color: #000;
-      text-decoration: none;
-      margin: 0 0.25rem;
-      cursor: pointer;
-    }
+.lang-switch a {
+  color: #000;
+  text-decoration: none;
+  margin: 0 0.25rem;
+}
 
 .top-image {
   position: relative;
@@ -211,17 +213,15 @@ p.pitch-text {
   </style>
 </head>
 <body>
-<div class="top-bar">
-  <div class="logo-container">
-    <img src="logo1.png" alt="AD Diesel Logo">
+<div class="top-right">
+  <div class="lang-switch">
+    <a onclick="switchLanguage('fr')">FR</a> | <a onclick="switchLanguage('en')">EN</a>
   </div>
-  <div class="top-right">
-    <div class="phone">📞 <a href="tel:4509992221">450 999-2221</a></div>
-    <div class="lang-switch">
-      <a onclick="switchLanguage('fr')">FR</a> | <a onclick="switchLanguage('en')">EN</a>
-    </div>
+  <div class="phone-button">
+    <a href="tel:4509992221">📞 450 999-2221</a>
   </div>
 </div>
+
 
 <div class="top-image">
   <img src="banner.JPG" alt="AD Diesel Banner">
