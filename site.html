@@ -59,16 +59,16 @@
 .top-image {
   position: relative;
   width: 100%;
-  margin-top: 55px; /* Adjust this to your top bar height */
+  margin-top: 55px; /* adjust to your top bar height */
   overflow: hidden;
+  background-color: #000; /* fallback */
 }
 
 .top-image img {
   width: 100%;
-  height: auto;         /* Maintain aspect ratio */
+  height: auto;       /* keeps aspect ratio */
   display: block;
-  object-fit: contain;  /* Ensures entire image is visible without cropping */
-}
+  object-fit: contain; /* ensures the full image is always visible */
 }
 
 .pitch-wrapper {
