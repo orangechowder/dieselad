@@ -51,12 +51,35 @@
   font-size: 1rem;
   font-weight: bold;
 }
+.top-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
 .phone-button a {
   color: #e0b100;
   text-decoration: none;
 }
-  
+  .lang-switch {
+  display: flex;
+  align-items: center;
+}
+
+.lang-switch .separator {
+  width: 1px;
+  height: 100%;
+  background-color: #000;
+  margin: 0 0.5rem;
+}
+
+.lang-switch a {
+  color: #000;
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+  font-weight: bold;
+}
 .top-image {
   position: relative;
   width: 100%;
@@ -253,13 +276,18 @@ p.pitch-text {
   <div class="logo-container">
     <img src="logo1.png" alt="AD Diesel Logo">
   </div>
-
-  <div class="top-right">
+<div class="top-right">
+  <div class="top-controls">
     <div class="phone-button">
       <a href="tel:4509992221">450 999-2221</a>
     </div>
+    <div class="lang-switch" id="langSwitch">
+      <span class="separator"></span>
+      <a id="langLink" href="#">FR</a>
+    </div>
   </div>
 </div>
+
 
 
 
@@ -414,5 +442,16 @@ p.pitch-text {
       startCarousel();
     });
   </script>
+  <script>
+  window.onload = function() {
+    const userLang = navigator.language || navigator.userLanguage;
+    const langLink = document.getElementById("langLink");
+    if (userLang.startsWith("fr")) {
+      langLink.textContent = "EN";
+    } else {
+      langLink.textContent = "FR";
+    }
+  };
+</script>
 </body>
 </html>
