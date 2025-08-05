@@ -140,7 +140,7 @@ p.pitch-text {
 
 .service-bullet {
   display: flex;
-  align-items: center; /* changed from flex-start */
+  align-items: flex-start;
   gap: 0.8rem;
   justify-content: center;
   margin-bottom: 1rem;
@@ -148,13 +148,15 @@ p.pitch-text {
 }
 
 
+
 .check {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 24px;
-  min-height: 24px;
+  font-size: 1.2rem;
+  color: #e0b100;
+  position: relative;
+  top: 4px; /* Manually nudges the checkmark upward */
+  width: 1.2rem;
 }
+
 
 
 
@@ -324,18 +326,28 @@ p.pitch-text {
   
 <div class="service-bullet">
   <span class="check"><i class="fa-regular fa-check"></i></span>
-  <div><strong>24/7 Mobile Service</strong><br> Across Montréal, Laval, Rive-Sud & more</div>
+  <div>
+    <strong>24/7 Mobile Service</strong><br>
+    Across Montréal, Laval, Rive-Sud & more
+  </div>
 </div>
 
 <div class="service-bullet">
   <span class="check"><i class="fa-regular fa-check"></i></span>
-  <div><strong>Certified Experts</strong><br> Diesel technicians, PEP inspectors, and pre-SAAQ specialists</div>
+  <div>
+    <strong>Certified Experts</strong><br>
+    Diesel technicians, PEP inspectors, and pre-SAAQ specialists
+  </div>
 </div>
 
 <div class="service-bullet">
   <span class="check"><i class="fa-regular fa-check"></i></span>
-  <div><strong>Fleet Maintenance</strong><br> Preventative programs to keep your operation moving</div>
+  <div>
+    <strong>Fleet Maintenance</strong><br>
+    Preventative programs to keep your operation moving
+  </div>
 </div>
+
 
 
   <a class="cta-button" href="#contact">CONTACT US</a>
