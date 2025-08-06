@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AD Diesel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * { box-sizing: border-box; }
+    html, body { overflow-x: hidden; margin: 0; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .top-bar {
+      background-color: #e0b100;
+      height: 70px;
+      padding: 0 1rem;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-container img {
+      height: 100px;
+      margin-top: 40px;
+    }
+
+    .top-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.3rem;
+    }
+
+.phone-button {
+  background-color: #000;        /* black background */
+  color: #e0b100;                   /* white text */
+  border-radius: 999px;          /* full rounded button */
+  padding: 0.4rem 1rem;          /* space inside the button */
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.top-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.phone-button a {
+  color: #e0b100;
+  text-decoration: none;
+}
+  .lang-switch {
+  display: flex;
+  align-items: center;
+}
+
+.lang-switch .separator {
+  width: 1px;
+  height: 100%;
+  background-color: #000;
+  margin: 0 0.5rem;
+}
+
+.lang-switch a {
+  color: #000;
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+  font-weight: bold;
+}
+.top-image {
+  position: relative;
+  width: 100%;
+  margin-top: 55px; /* adjust to your top bar height */
+  overflow: hidden;
+  background-color: #000; /* fallback */
+}
+
+.top-image img {
+  width: 100%;
+  height: auto;       /* keeps aspect ratio */
+  display: block;
+  object-fit: contain; /* ensures the full image is always visible */
+}
+
+.pitch-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.pitch-text {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1.8rem;
+  color: white;
+  background-color: black;
+  border: 2px solid #777;
+  padding: 0.5rem 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+p.pitch-text {
+  margin-bottom: 0;
+  }
+  
+  .about-section {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  max-width: 750px;
+  margin: auto;
+}
+
+.about-section h1 {
+  font-size: 1.7rem;
+  color: #e0b100;
+  margin-bottom: 1rem;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  color: #f2f2f2;
+  margin-bottom: 2rem;
+}
+
+.service-bullet {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.8rem;
+  justify-content: start;
+  align-items: start;
+  margin-bottom: 1rem;
+  /* remove the centering lines */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  padding: 0 1rem; /* optional horizontal padding */
+}
+
+.service-bullet > div {
+  text-align: left;
+}
+
+.service-bullet strong {
+  color: #e0b100;
+}
+
+
+
+.check {
+  font-size: 1.2rem;
+  color: #e0b100;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  line-height: 1;
+  padding-top: 0.2rem;
+}
+
+
+
+
+
+.check i {
+  color: #e0b100;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+
+
+
+.cta-button {
+  display: inline-block;
+  background-color: #e00000;
+  color: white;
+  font-weight: bold;
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  text-decoration: none;
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+.responsive-img {
+  width: 35%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+    h2 {
+      text-align: center;
+      color: #e0b100;
+      font-size: 1.5rem;
+      font-weight: 550;
+      margin-top: 2.5rem;
+    }
+
+    .carousel-container {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-track {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      gap: 1rem;
+      padding: 1rem calc(50vw - 150px);
+      scroll-snap-type: x mandatory;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .service-card {
+      flex: 0 0 auto;
+      width: 300px;
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      scroll-snap-align: center;
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .service-card .info {
+      padding: 1rem;
+    }
+
+    .info h3 {
+      margin: 0;
+      color: #e0b100;
+    }
+
+    .info p {
+      margin-top: 0rem;
+      color: #f2f2f2;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .box {
+      background-color: #1f1f1f;
+      border-radius: 10px;
+      padding: 1.2rem;
+      min-width: 240px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .contact {
+      text-align: center;
+      background-color: #000;
+      color: #ffffff;
+      font-size: 1.2rem;
+    }
+
+    .contact p {
+      margin-top: 0rem;
+    }
+
+    footer {
+      background-color: #000;
+      color: #777;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+</body>
+<div class="top-bar">
+  <div class="logo-container">
+  <a href="https://adiesel.ca">
+    <img src="logo1.png" alt="AD Diesel Logo">
+  </a>
+</div>
+
+  <div class="top-right">
+    <div class="top-controls">
+      <div class="phone-button">
+        <a href="tel:4509992221">450 999-2221</a>
+      </div>
+      <div class="lang-switch" id="langSwitch">
+        <span class="separator"></span>
+        <a id="langLink" href="#">FR</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="top-image">
+  <img src="banner.JPG" alt="AD Diesel Banner">
+</div>
+
+
+
+<section class="about-section">
+  <h1><strong>AD Diesel:</strong> Mobile Expertise. Zero Downtime.</h1>
+  <p>Wherever you are, whenever you need us.<br>
+  We specialize in <strong>semi-truck, heavy equipment and trailer </strong>repairs.</p>
+  
+</div>
+  <div class="pitch-wrapper">
+  <div class="pitch-text">DOWNTIME ENDS HERE.</div>
+</div>
+  
+<div class="service-bullet">
+  <span class="check"><i class="fa-regular fa-check"></i></span>
+  <div>
+    <strong>24/7 Mobile Service</strong><br>
+    Across Montréal, Laval, Rive-Sud & more
+  </div>
+</div>
+
+<div class="service-bullet">
+  <span class="check"><i class="fa-regular fa-check"></i></span>
+  <div>
+    <strong>Certified Experts</strong><br>
+    Diesel technicians, PEP inspectors, and pre-SAAQ specialists
+  </div>
+</div>
+
+<div class="service-bullet">
+  <span class="check"><i class="fa-regular fa-check"></i></span>
+  <div>
+    <strong>Fleet Maintenance</strong><br>
+    Preventative programs to keep your operation moving
+  </div>
+</div>
+
+
+
+<a class="cta-button" href="tel:4509992221">CONTACT US</a>
+
+</section>
+
+   
+     <h2>Our Services</h2>
+    <div class="carousel-container">
+      <div class="carousel-track" id="carousel">
+        <!-- Service Cards -->
+        <div class="service-card">
+          <img src="https://managedmobile.com/wp-content/uploads/2017/08/managed-mobile-roadside-truck-repair.jpg">
+          <div class="info">
+            <h3>Semi-Trailer Repairs</h3>
+            <p>Axles, brakes, lights, and structure repairs done on-site.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://nextlevel-semitruckrepair.com/images/mobile-semi-truck-repair-roadside-assistance.jpg">
+          <div class="info">
+            <h3>Semi-Truck Repairs</h3>
+            <p>Mobile diagnostics, engine, and electrical repairs — wherever your truck stops.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://tse2.mm.bing.net/th?id=OIP.rZmTOLbiNx5Et67MLc_YRAHaE8&pid=Api">
+          <div class="info">
+            <h3>24/7 Roadside Assistance</h3>
+            <p>Emergency mobile repair for trucks, trailers, and heavy-duty units.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://tse4.mm.bing.net/th?id=OIP.N6CkBppGpeMLszyJx7nFwgHaE7&pid=Api">
+          <div class="info">
+            <h3>Heavy Equipment Repairs</h3>
+            <p>Field service for excavators, loaders, graders, and more.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="fleet.jpg">
+          <div class="info">
+            <h3>Fleet Management Service</h3>
+            <p>Track, maintain, and manage your entire fleet effortlessly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Certified Professionals</h2>
+    <div class="grid">
+      <div class="box">Certified Truck Technicians</div>
+      <div class="box">Certified Heavy Machinery Experts</div>
+      <div class="box">PEP Inspectors</div>
+      <div class="box">Pre-SAAQ Inspections</div>
+    </div>
+
+    <h2>Service Areas</h2>
+    <div class="grid">
+      <div class="box">Montréal</div>
+      <div class="box">Laval</div>
+      <div class="box">Rive-Nord</div>
+      <div class="box">Rive-Sud</div>
+      <div class="box">Montérégie</div>
+    </div>
+    
+<img src="googler.WEBP" alt="Separator" class="responsive-img">
+  
+    <section class="contact">
+      <h3>24/7 Emergency Service</h3>
+      <p><strong>Phone:</strong> 450 999-2221</p>
+      <p><strong>Email:</strong> ad.diesel@mail.com</p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 AD Diesel. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function switchLanguage(lang) {
+      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('content-fr').style.display = lang === 'fr' ? 'block' : 'none';
+    }
+
+    const userLang = navigator.language || navigator.userLanguage;
+    switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
+
+    const carousel = document.getElementById('carousel');
+    const cards = carousel.querySelectorAll('.service-card');
+    const scrollStep = 320;
+    const scrollDelay = 4000;
+    let interval;
+
+    function centerFirstCard() {
+      if (cards.length === 0) return;
+      const firstCard = cards[0];
+      const offset = firstCard.offsetLeft - (carousel.offsetWidth - firstCard.offsetWidth) / 2;
+      carousel.scrollTo({ left: offset, behavior: 'auto' });
+    }
+
+    function startCarousel() {
+      stopCarousel();
+      interval = setInterval(() => {
+        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5) {
+          centerFirstCard();
+        } else {
+          carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
+        }
+      }, scrollDelay);
+    }
+
+    function stopCarousel() {
+      clearInterval(interval);
+    }
+
+    carousel.addEventListener('mouseenter', stopCarousel);
+    carousel.addEventListener('mouseleave', startCarousel);
+    carousel.addEventListener('touchstart', stopCarousel);
+    carousel.addEventListener('touchend', startCarousel);
+
+    window.addEventListener('load', () => {
+      centerFirstCard();
+      startCarousel();
+    });
+  </script>
+  <script>
+  window.onload = function() {
+    const userLang = navigator.language || navigator.userLanguage;
+    const langLink = document.getElementById("langLink");
+    if (userLang.startsWith("fr")) {
+      langLink.textContent = "EN";
+    } else {
+      langLink.textContent = "FR";
+    }
+  };
+</script>
+</body>
+</html>
