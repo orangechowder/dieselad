@@ -1,4 +1,4 @@
-+<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -17,6 +17,17 @@
       font-family: 'Roboto', sans-serif;
       background-color: #000;
       color: #fff;
+    }
+    
+    /* NEW, MORE ROBUST METHOD FOR HIDING/SHOWING LANGUAGE */
+    .lang-en, .lang-fr {
+        display: inline;
+    }
+    body.lang-en-active .lang-fr {
+        display: none;
+    }
+    body.lang-fr-active .lang-en {
+        display: none;
     }
 
     .top-bar {
@@ -43,490 +54,516 @@
       gap: 0.3rem;
     }
 
-.phone-button {
-  background-color: #000;        /* black background */
-  color: #e0b100;                   /* white text */
-  border-radius: 999px;          /* full rounded button */
-  padding: 0.4rem 1rem;          /* space inside the button */
-  display: inline-block;
-  font-size: 1rem;
-  font-weight: bold;
-}
-.top-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.phone-button a {
-  color: #e0b100;
-  text-decoration: none;
-}
-  .lang-switch {
-  display: flex;
-  align-items: center;
-}
-
-.lang-switch .separator {
-  width: 1px;
-  height: 100%;
-  background-color: #000;
-  margin: 0 0.5rem;
-}
-
-.lang-switch a {
-  color: #000;
-  font-size: 0.9rem;
-  text-decoration: none;
-  padding: 0.4rem 0.6rem;
-  font-weight: bold;
-}
-.top-image {
-  position: relative;
-  width: 100%;
-  margin-top: 55px; /* adjust to your top bar height */
-  overflow: hidden;
-  background-color: #000; /* fallback */
-}
-
-.top-image img {
-  width: 100%;
-  height: auto;       /* keeps aspect ratio */
-  display: block;
-  object-fit: contain; /* ensures the full image is always visible */
-}
-
-.pitch-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 1.5rem 0;
-}
-
-.pitch-text {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 1.8rem;
-  color: white;
-  background-color: black;
-  border: 2px solid #777;
-  padding: 0.5rem 1.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-p.pitch-text {
-  margin-bottom: 0;
-  }
-  
-  .about-section {
-  background-color: #000;
-  color: #fff;
-  text-align: center;
-  padding: 0.5rem 1rem;
-  max-width: 750px;
-  margin: auto;
-}
-
-.about-section h1 {
-  font-size: 1.7rem;
-  color: #e0b100;
-  margin-bottom: 1rem;
-}
-
-.about-section p {
-  font-size: 1.1rem;
-  color: #f2f2f2;
-  margin-bottom: 2rem;
-}
-
-.service-bullet {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.8rem;
-  justify-content: start;
-  align-items: start;
-  margin-bottom: 1rem;
-  /* remove the centering lines */
-  /* margin-left: auto; */
-  /* margin-right: auto; */
-  padding: 0 1rem; /* optional horizontal padding */
-}
-
-.service-bullet > div {
-  text-align: left;
-}
-
-.service-bullet strong {
-  color: #e0b100;
-}
-
-
-
-.check {
-  font-size: 1.2rem;
-  color: #e0b100;
-  display: flex;
-  align-items: start;
-  justify-content: center;
-  line-height: 1;
-  padding-top: 0.2rem;
-}
-
-
-
-
-
-.check i {
-  color: #e0b100;
-  font-size: 1.2rem;
-  line-height: 1;
-}
-
-
-
-
-.cta-button {
-  display: inline-block;
-  background-color: #e00000;
-  color: white;
-  font-weight: bold;
-  padding: 0.9rem 1.8rem;
-  border-radius: 999px;
-  text-decoration: none;
-  margin-top: 2rem;
-  font-size: 1rem;
-}
-
-.responsive-img {
-  width: 35%;
-  max-width: 500px;
-  height: auto;
-  display: block;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-    h2 {
-      text-align: center;
+    .phone-button {
+      background-color: #000;
       color: #e0b100;
-      font-size: 1.5rem;
-      font-weight: 550;
-      margin-top: 2.5rem;
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: bold;
     }
-
-    .carousel-container {
-      overflow: hidden;
-      position: relative;
-    }
-
-    .carousel-track {
+    .top-controls {
       display: flex;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      gap: 1rem;
-      padding: 1rem calc(50vw - 150px);
-      scroll-snap-type: x mandatory;
-    }
-
-    .carousel-track::-webkit-scrollbar {
-      display: none;
-    }
-
-    .service-card {
-      flex: 0 0 auto;
-      width: 300px;
-      background-color: #1a1a1a;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
-      scroll-snap-align: center;
+      gap: 0.5rem;
     }
 
-    .service-card img {
+    .phone-button a {
+      color: #e0b100;
+      text-decoration: none;
+    }
+    .lang-switch {
+      display: flex;
+      align-items: center;
+    }
+
+    .lang-switch .separator {
+      width: 1px;
+      height: 100%;
+      background-color: #000;
+      margin: 0 0.5rem;
+    }
+
+    .lang-switch a {
+      color: #000;
+      font-size: 0.9rem;
+      text-decoration: none;
+      padding: 0.4rem 0.6rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .top-image {
+      position: relative;
       width: 100%;
-      height: 180px;
-      object-fit: cover;
+      margin-top: 55px;
+      overflow: hidden;
+      background-color: #000;
     }
 
-    .service-card .info {
-      padding: 1rem;
+    .top-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .pitch-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+
+    .pitch-text {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 1.8rem;
+      color: white;
+      background-color: black;
+      border: 2px solid #777;
+      padding: 0.5rem 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
     }
     
-.about-extra {
-  max-width: 750px;
-  margin: 2rem auto;
-  padding: 1rem;
-  color: #f2f2f2;
-  font-size: 1rem;
-  line-height: 1.6;
-  text-align: center;
-}
+    .about-section {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 0.5rem 1rem;
+      max-width: 750px;
+      margin: auto;
+    }
 
-.about-extra h2 {
-  color: #e0b100;
-  font-size: 1.6rem;
-  text-align: center;
-  margin-bottom: 1rem;
-}
+    .about-section h1 {
+      font-size: 1.7rem;
+      color: #e0b100;
+      margin-bottom: 1rem;
+    }
 
-    .info h3 {
-      margin: 0;
+    .about-section p {
+      font-size: 1.1rem;
+      color: #f2f2f2;
+      margin-bottom: 2rem;
+    }
+
+    .service-bullet {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.8rem;
+      justify-content: start;
+      align-items: start;
+      margin-bottom: 1rem;
+      padding: 0 1rem; 
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .service-bullet > div {
+      text-align: left;
+    }
+
+    .service-bullet strong {
       color: #e0b100;
     }
 
-    .info p {
-      margin-top: 0rem;
-      color: #f2f2f2;
-    }
-
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1rem;
-    }
-
-    .box {
-      background-color: #1f1f1f;
-      border-radius: 10px;
-      padding: 1.2rem;
-      min-width: 240px;
-      text-align: center;
-      color: #fff;
-    }
-
-    .contact {
-      text-align: center;
-      background-color: #000;
-      color: #ffffff;
+    .check {
       font-size: 1.2rem;
+      color: #e0b100;
+      display: flex;
+      align-items: start;
+      justify-content: center;
+      line-height: 1;
+      padding-top: 0.2rem;
     }
 
-    .contact p {
-      margin-top: 0rem;
+    .cta-button {
+      display: inline-block;
+      background-color: #e00000;
+      color: white;
+      font-weight: bold;
+      padding: 0.9rem 1.8rem;
+      border-radius: 999px;
+      text-decoration: none;
+      margin-top: 2rem;
+      font-size: 1rem;
     }
 
-    footer {
-      background-color: #000;
-      color: #777;
+    .responsive-img {
+      width: 35%;
+      max-width: 500px;
+      height: auto;
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+      h2 {
+        text-align: center;
+        color: #e0b100;
+        font-size: 1.5rem;
+        font-weight: 550;
+        margin-top: 2.5rem;
+      }
+
+      .carousel-container {
+        overflow: hidden;
+        position: relative;
+      }
+
+      .carousel-track {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        padding: 1rem calc(50vw - 150px);
+        scroll-snap-type: x mandatory;
+      }
+
+      .carousel-track::-webkit-scrollbar {
+        display: none;
+      }
+
+      .service-card {
+        flex: 0 0 auto;
+        width: 300px;
+        background-color: #1a1a1a;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        scroll-snap-align: center;
+      }
+
+      .service-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+      
+    .about-extra {
+      max-width: 750px;
+      margin: 2rem auto;
+      padding: 1rem;
+      color: #f2f2f2;
+      font-size: 1rem;
+      line-height: 1.6;
       text-align: center;
-      padding: 0.5rem;
-      font-size: 0.9rem;
     }
+
+    .about-extra h2 {
+      color: #e0b100;
+      font-size: 1.6rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+      .info h3 {
+        margin: 0;
+        color: #e0b100;
+      }
+
+      .info p {
+        margin-top: 0rem;
+        color: #f2f2f2;
+      }
+
+      .contact {
+        text-align: center;
+        background-color: #000;
+        color: #ffffff;
+        font-size: 1.2rem;
+      }
+
+      footer {
+        background-color: #000;
+        color: #777;
+        text-align: center;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+      }
   </style>
 </head>
-</body>
+<body class="lang-en-active">
+
 <div class="top-bar">
   <div class="logo-container">
-  <a href="https://adiesel.ca">
-    <img src="logo1.png" alt="AD Diesel Logo">
-  </a>
-</div>
+    <a href="https://adiesel.ca">
+      <img src="logo1.png" alt="AD Diesel Logo">
+    </a>
+  </div>
 
   <div class="top-right">
     <div class="top-controls">
       <div class="phone-button">
         <a href="tel:4509992221">450 999-2221</a>
       </div>
-      <div class="lang-switch" id="langSwitch">
+      <div class="lang-switch">
         <span class="separator"></span>
-        <a id="langLink" href="#">FR</a>
+        <a id="langLink">FR</a>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
 
 <div class="top-image">
   <img src="banner.JPG" alt="AD Diesel Banner">
 </div>
 
-
-
 <section class="about-section">
-  <h1><strong>AD Diesel:</strong> Mobile Expertise. Zero Downtime.</h1>
-  <p>Wherever you are, whenever you need us.<br>
-  We specialize in <strong>semi-truck, heavy equipment and trailer </strong>repairs.</p>
-  
-</div>
+  <h1>
+    <span class="lang-en"><strong>AD Diesel:</strong> Mobile Expertise. Zero Downtime.</span>
+    <span class="lang-fr"><strong>AD Diesel :</strong> Expertise Mobile. Aucun Temps d'Arrêt.</span>
+  </h1>
+  <p>
+    <span class="lang-en">Wherever you are, whenever you need us.<br>We specialize in <strong>semi-truck, heavy equipment and trailer</strong> repairs.</span>
+    <span class="lang-fr">Où et quand vous en avez besoin.<br>Nous sommes spécialisé dans la réparation de <strong>camions lourds, d'équipements lourds et de remorques</strong>.</span>
+  </p>
   <div class="pitch-wrapper">
-  <div class="pitch-text">DOWNTIME ENDS HERE.</div>
-</div>
-  
-<div class="service-bullet">
-  <span class="check"><i class="fa-regular fa-check"></i></span>
-  <div>
-    <strong>24/7 Mobile Service</strong><br>
-    Across Montréal, Laval, Rive-Sud & more
+    <div class="pitch-text">
+      <span class="lang-en">DOWNTIME ENDS HERE.</span>
+      <span class="lang-fr">FINIS LES TEMPS D'ARRÊT.</span>
+    </div>
   </div>
-</div>
-
-<div class="service-bullet">
-  <span class="check"><i class="fa-regular fa-check"></i></span>
-  <div>
-    <strong>Certified Experts</strong><br>
-    Diesel technicians, PEP inspectors, and pre-SAAQ specialists
+  <div class="service-bullet">
+    <span class="check"><i class="fa-regular fa-check"></i></span>
+    <div>
+      <strong>
+        <span class="lang-en">24/7 Mobile Service</span>
+        <span class="lang-fr">Service Mobile 24/7</span>
+      </strong><br>
+      <span class="lang-en">Across Montréal, Laval, Rive-Sud & more</span>
+      <span class="lang-fr">Couvrant Montréal, Laval, Rive-Sud et plus</span>
+    </div>
   </div>
-</div>
-
-<div class="service-bullet">
-  <span class="check"><i class="fa-regular fa-check"></i></span>
-  <div>
-    <strong>Fleet Maintenance</strong><br>
-    Preventative programs to keep your operation moving
+  <div class="service-bullet">
+    <span class="check"><i class="fa-regular fa-check"></i></span>
+    <div>
+      <strong>
+        <span class="lang-en">Certified Experts</span>
+        <span class="lang-fr">Experts Certifiés</span>
+      </strong><br>
+      <span class="lang-en">Diesel technicians, PEP inspectors, and pre-SAAQ specialists</span>
+      <span class="lang-fr">Techniciens diesel, inspecteurs PEP et spécialistes pré-SAAQ</span>
+    </div>
   </div>
-</div>
-
-
-
-<a class="cta-button" href="tel:4509992221">CONTACT US</a>
-
+  <div class="service-bullet">
+    <span class="check"><i class="fa-regular fa-check"></i></span>
+    <div>
+      <strong>
+        <span class="lang-en">Fleet Maintenance</span>
+        <span class="lang-fr">Entretien de Flotte</span>
+      </strong><br>
+      <span class="lang-en">Preventative programs to keep your operation moving</span>
+      <span class="lang-fr">Programmes préventifs pour maintenir vos opérations en mouvement</span>
+    </div>
+  </div>
+  <a class="cta-button" href="tel:4509992221">
+    <span class="lang-en">CONTACT US</span>
+    <span class="lang-fr">CONTACTEZ-NOUS</span>
+  </a>
 </section>
 
-   
-     <h2>Our Services</h2>
-    <div class="carousel-container">
-      <div class="carousel-track" id="carousel">
-        <!-- Service Cards -->
-        <div class="service-card">
-          <img src="https://tse2.mm.bing.net/th?id=OIP.rZmTOLbiNx5Et67MLc_YRAHaE8&pid=Api">
-          <div class="info">
-            <h3>24/7 Roadside Assistance</h3>
-            <p>Emergency mobile repair for trucks, trailers, and heavy-duty units.</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <img src="https://nextlevel-semitruckrepair.com/images/mobile-semi-truck-repair-roadside-assistance.jpg">
-          <div class="info">
-            <h3>Semi-Truck Repairs</h3>
-            <p>Mobile diagnostics, engine, and electrical repairs — wherever your truck stops.</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <img src="https://tse4.mm.bing.net/th?id=OIP.N6CkBppGpeMLszyJx7nFwgHaE7&pid=Api">
-          <div class="info">
-            <h3>Heavy Equipment Repairs</h3>
-            <p>Field service for excavators, loaders, graders, and more.</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <img src="https://managedmobile.com/wp-content/uploads/2017/08/managed-mobile-roadside-truck-repair.jpg">
-          <div class="info">
-            <h3>Semi-Trailer Repairs</h3>
-            <p>Axles, brakes, lights, and structure repairs done on-site.</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <img src="fleet.jpg">
-          <div class="info">
-            <h3>Fleet Management Service</h3>
-            <p>Track, maintain, and manage your entire fleet effortlessly.</p>
-          </div>
-        </div>
+<h2>
+  <span class="lang-en">Our Services</span>
+  <span class="lang-fr">Nos Services</span>
+</h2>
+<div class="carousel-container">
+  <div class="carousel-track" id="carousel">
+    <div class="service-card">
+      <img src="https://tse2.mm.bing.net/th?id=OIP.rZmTOLbiNx5Et67MLc_YRAHaE8&pid=Api" alt="Roadside Assistance">
+      <div class="info">
+        <h3>
+          <span class="lang-en">24/7 Roadside Assistance</span>
+          <span class="lang-fr">Assistance Routière 24/7</span>
+        </h3>
+        <p>
+          <span class="lang-en">Emergency mobile repair for trucks, trailers, and heavy-duty units.</span>
+          <span class="lang-fr">Réparation mobile d'urgence pour camions, remorques et unités lourdes.</span>
+        </p>
       </div>
     </div>
+    <div class="service-card">
+      <img src="https://nextlevel-semitruckrepair.com/images/mobile-semi-truck-repair-roadside-assistance.jpg" alt="Semi-Truck Repair">
+      <div class="info">
+        <h3>
+          <span class="lang-en">Semi-Truck Repairs</span>
+          <span class="lang-fr">Réparation de Camions Lourds</span>
+        </h3>
+        <p>
+          <span class="lang-en">Mobile diagnostics, engine, and electrical repairs — wherever your truck stops.</span>
+          <span class="lang-fr">Diagnostics mobiles, réparations moteur et électriques — où que votre camion s'arrête.</span>
+        </p>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="https://tse4.mm.bing.net/th?id=OIP.N6CkBppGpeMLszyJx7nFwgHaE7&pid=Api" alt="Heavy Equipment Repair">
+      <div class="info">
+        <h3>
+          <span class="lang-en">Heavy Equipment Repairs</span>
+          <span class="lang-fr">Réparation d'Équipement Lourd</span>
+        </h3>
+        <p>
+          <span class="lang-en">Field service for excavators, loaders, graders, and more.</span>
+          <span class="lang-fr">Service sur le terrain pour excavatrices, chargeuses, niveleuses et plus.</span>
+        </p>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="https://managedmobile.com/wp-content/uploads/2017/08/managed-mobile-roadside-truck-repair.jpg" alt="Semi-Trailer Repair">
+      <div class="info">
+        <h3>
+          <span class="lang-en">Semi-Trailer Repairs</span>
+          <span class="lang-fr">Réparation de Semi-Remorques</span>
+        </h3>
+        <p>
+          <span class="lang-en">Axles, brakes, lights, and structure repairs done on-site.</span>
+          <span class="lang-fr">Réparation d'essieux, freins, lumières et structure effectuée sur place.</span>
+        </p>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="fleet.jpg" alt="Fleet Management">
+      <div class="info">
+        <h3>
+          <span class="lang-en">Fleet Management Service</span>
+          <span class="lang-fr">Service de Gestion de Flotte</span>
+        </h3>
+        <p>
+          <span class="lang-en">Track, maintain, and manage your entire fleet effortlessly.</span>
+          <span class="lang-fr">Suivez, entretenez et gérez toute votre flotte sans effort.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <section class="about-extra">
-  <h2>About Us</h2>
+  <h2>
+    <span class="lang-en">About Us</span>
+    <span class="lang-fr">À Propos de Nous</span>
+  </h2>
   <p>
-    Since 2024, <strong>AD Diesel</strong> has been the trusted name in mobile heavy-duty repair across Québec. We proudly serve a wide range of clients — from large trucking brokers and logistics firms to construction contractors and equipment operators.
+    <span class="lang-en"> Since 2024, <strong>AD Diesel</strong> has been the trusted name in mobile heavy-duty repair across Québec. We proudly serve a wide range of clients — from large trucking brokers and logistics firms to construction contractors and equipment operators. </span>
+    <span class="lang-fr"> Depuis 2024, <strong>AD Diesel</strong> est le nom de confiance pour la réparation mobile d'équipements lourds à travers le Québec. Nous servons fièrement une large clientèle — des grands courtiers en transport et firmes de logistique aux entrepreneurs en construction et opérateurs d'équipement. </span>
   </p>
   <p>
-    Our mission is simple: <strong>minimize downtime and keep your fleet moving</strong>. With a team of certified diesel mechanics, PEP inspectors, and pre-SAAQ specialists, we deliver fast, on-site service 24/7 — no matter where the job takes you.
+    <span class="lang-en"> Our mission is simple: <strong>minimize downtime and keep your fleet moving</strong>. With a team of certified diesel mechanics, PEP inspectors, and pre-SAAQ specialists, we deliver fast, on-site service 24/7 — no matter where the job takes you. </span>
+    <span class="lang-fr"> Notre mission est simple : <strong>minimiser les temps d'arrêt et maintenir votre flotte en mouvement</strong>. Avec une équipe de mécaniciens diesel certifiés, d'inspecteurs PEP et de spécialistes pré-SAAQ, nous offrons un service rapide sur place 24/7 — peu importe où le travail vous mène. </span>
   </p>
   <p>
-    Whether you're managing long-haul trucks, trailers, or heavy machinery on remote sites, we bring diagnostics, maintenance, and repairs directly to you. Backed by years of industry experience and a commitment to excellence, AD Diesel is your go-to partner for mobile fleet support that works as hard as you do.
+    <span class="lang-en"> Whether you're managing long-haul trucks, trailers, or heavy machinery on remote sites, we bring diagnostics, maintenance, and repairs directly to you. Backed by years of industry experience and a commitment to excellence, AD Diesel is your go-to partner for mobile fleet support that works as hard as you do. </span>
+    <span class="lang-fr"> Que vous gériez des camions long-courriers, des remorques ou de la machinerie lourde sur des sites éloignés, nous apportons les diagnostics, l'entretien et les réparations directement à vous. Forts de plusieurs années d'expérience dans l'industrie et d'un engagement envers l'excellence, AD Diesel est votre partenaire de choix pour un soutien de flotte mobile qui travaille aussi fort que vous. </span>
   </p>
 </section>
 
-
-    
 <a href="https://share.google/8z6JC6TuCtJ2UrP3T" target="_blank" rel="noopener noreferrer">
-  <img src="googler.WEBP" alt="Separator" class="responsive-img">
+  <img src="googler.WEBP" alt="Google Reviews Link" class="responsive-img">
 </a>
 
-  
-    <section class="contact">
-  <h3 style="color:#e0b100;">24/7 Emergency Service</h3>
+<section class="contact">
+  <h3 style="color:#e0b100;">
+    <span class="lang-en">24/7 Emergency Service</span>
+    <span class="lang-fr">Service d'Urgence 24/7</span>
+  </h3>
   <p>
-    <strong>Email:</strong> 
-    <a href="mailto:ad.diesel@mail.com?subject=Service%20Request&body=Hello%20AD%20Diesel,">
-      ad.diesel@mail.com
-    </a>
+    <strong>
+      <span class="lang-en">Email:</span>
+      <span class="lang-fr">Courriel :</span>
+    </strong>&nbsp;
+    <a href="mailto:ad.diesel@mail.com?subject=Service%20Request&body=Hello%20AD%20Diesel,"> ad.diesel@mail.com </a>
   </p>
 </section>
-  </div>
 
-  <footer>
-    <p>&copy; 2025 AD Diesel. All rights reserved.</p>
-  </footer>
+<footer>
+  <p>
+    <span class="lang-en">&copy; 2025 AD Diesel. All rights reserved.</span>
+    <span class="lang-fr">&copy; 2025 AD Diesel. Tous droits réservés.</span>
+  </p>
+</footer>
 
-  <script>
-    function switchLanguage(lang) {
-      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
-      document.getElementById('content-fr').style.display = lang === 'fr' ? 'block' : 'none';
-    }
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // --- Language Toggle Logic (Robust Method) ---
+    const langLink = document.getElementById('langLink');
+    let currentLang = 'en';
 
-    const userLang = navigator.language || navigator.userLanguage;
-    switchLanguage(userLang.startsWith("fr") ? "fr" : "en");
-
-    const carousel = document.getElementById('carousel');
-    const cards = carousel.querySelectorAll('.service-card');
-    const scrollStep = 320;
-    const scrollDelay = 4000;
-    let interval;
-
-    function centerFirstCard() {
-      if (cards.length === 0) return;
-      const firstCard = cards[0];
-      const offset = firstCard.offsetLeft - (carousel.offsetWidth - firstCard.offsetWidth) / 2;
-      carousel.scrollTo({ left: offset, behavior: 'auto' });
-    }
-
-    function startCarousel() {
-      stopCarousel();
-      interval = setInterval(() => {
-        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5) {
-          centerFirstCard();
-        } else {
-          carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
+    function setLanguage(lang) {
+        if (lang === 'fr') {
+            document.body.classList.remove('lang-en-active');
+            document.body.classList.add('lang-fr-active');
+            langLink.textContent = 'EN';
+            document.documentElement.lang = 'fr';
+            currentLang = 'fr';
+        } else { // lang === 'en'
+            document.body.classList.remove('lang-fr-active');
+            document.body.classList.add('lang-en-active');
+            langLink.textContent = 'FR';
+            document.documentElement.lang = 'en';
+            currentLang = 'en';
         }
-      }, scrollDelay);
     }
 
-    function stopCarousel() {
-      clearInterval(interval);
-    }
-
-    carousel.addEventListener('mouseenter', stopCarousel);
-    carousel.addEventListener('mouseleave', startCarousel);
-    carousel.addEventListener('touchstart', stopCarousel);
-    carousel.addEventListener('touchend', startCarousel);
-
-    window.addEventListener('load', () => {
-      centerFirstCard();
-      startCarousel();
+    langLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        const newLang = currentLang === 'en' ? 'fr' : 'en';
+        setLanguage(newLang);
     });
-  </script>
-  <script>
-  window.onload = function() {
+
+    // Initial language detection from browser
     const userLang = navigator.language || navigator.userLanguage;
-    const langLink = document.getElementById("langLink");
-    if (userLang.startsWith("fr")) {
-      langLink.textContent = "EN";
+    if (userLang.startsWith('fr')) {
+        setLanguage('fr');
     } else {
-      langLink.textContent = "FR";
+        setLanguage('en'); 
     }
-  };
+
+    // --- Carousel Logic ---
+    const carousel = document.getElementById('carousel');
+    if (carousel) {
+        const cards = carousel.querySelectorAll('.service-card');
+        const scrollStep = 320; 
+        const scrollDelay = 4000;
+        let interval;
+
+        function centerFirstCard() {
+            if (cards.length === 0) return;
+            const firstCard = cards[0];
+            const offset = firstCard.offsetLeft - (carousel.offsetWidth - firstCard.offsetWidth) / 2;
+            carousel.scrollTo({ left: offset, behavior: 'auto' });
+        }
+
+        function startCarousel() {
+            stopCarousel();
+            interval = setInterval(() => {
+                if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5) {
+                    centerFirstCard();
+                } else {
+                    carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
+                }
+            }, scrollDelay);
+        }
+
+        function stopCarousel() {
+            clearInterval(interval);
+        }
+
+        carousel.addEventListener('mouseenter', stopCarousel);
+        carousel.addEventListener('mouseleave', startCarousel);
+        carousel.addEventListener('touchstart', stopCarousel);
+        carousel.addEventListener('touchend', startCarousel);
+
+        centerFirstCard();
+        startCarousel();
+    }
+});
 </script>
 </body>
 </html>
