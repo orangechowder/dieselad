@@ -19,9 +19,15 @@
       color: #fff;
     }
     
-    /* Hide the French content by default */
-    .lang-fr {
-      display: none;
+    /* NEW, MORE ROBUST METHOD FOR HIDING/SHOWING LANGUAGE */
+    .lang-en, .lang-fr {
+        display: inline;
+    }
+    body.lang-en-active .lang-fr {
+        display: none;
+    }
+    body.lang-fr-active .lang-en {
+        display: none;
     }
 
     .top-bar {
@@ -49,10 +55,10 @@
     }
 
     .phone-button {
-      background-color: #000;        /* black background */
-      color: #e0b100;                /* gold text */
-      border-radius: 999px;         /* full rounded button */
-      padding: 0.4rem 1rem;         /* space inside the button */
+      background-color: #000;
+      color: #e0b100;
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
       display: inline-block;
       font-size: 1rem;
       font-weight: bold;
@@ -90,16 +96,16 @@
     .top-image {
       position: relative;
       width: 100%;
-      margin-top: 55px; /* adjust to your top bar height */
+      margin-top: 55px;
       overflow: hidden;
-      background-color: #000; /* fallback */
+      background-color: #000;
     }
 
     .top-image img {
       width: 100%;
-      height: auto;        /* keeps aspect ratio */
+      height: auto;
       display: block;
-      object-fit: contain; /* ensures the full image is always visible */
+      object-fit: contain;
     }
 
     .pitch-wrapper {
@@ -118,10 +124,6 @@
       font-weight: bold;
       text-transform: uppercase;
       text-align: center;
-    }
-
-    p.pitch-text {
-      margin-bottom: 0;
     }
     
     .about-section {
@@ -174,12 +176,6 @@
       justify-content: center;
       line-height: 1;
       padding-top: 0.2rem;
-    }
-
-    .check i {
-      color: #e0b100;
-      font-size: 1.2rem;
-      line-height: 1;
     }
 
     .cta-button {
@@ -250,10 +246,6 @@
         height: 180px;
         object-fit: cover;
       }
-
-      .service-card .info {
-        padding: 1rem;
-      }
       
     .about-extra {
       max-width: 750px;
@@ -282,32 +274,11 @@
         color: #f2f2f2;
       }
 
-      .grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-        padding: 1rem;
-      }
-
-      .box {
-        background-color: #1f1f1f;
-        border-radius: 10px;
-        padding: 1.2rem;
-        min-width: 240px;
-        text-align: center;
-        color: #fff;
-      }
-
       .contact {
         text-align: center;
         background-color: #000;
         color: #ffffff;
         font-size: 1.2rem;
-      }
-
-      .contact p {
-        margin-top: 0rem;
       }
 
       footer {
@@ -319,7 +290,7 @@
       }
   </style>
 </head>
-<body>
+<body class="lang-en-active">
 
 <div class="top-bar">
   <div class="logo-container">
@@ -354,14 +325,12 @@
     <span class="lang-en">Wherever you are, whenever you need us.<br>We specialize in <strong>semi-truck, heavy equipment and trailer</strong> repairs.</span>
     <span class="lang-fr">Où que vous soyez, quand vous avez besoin de nous.<br>Nous nous spécialisons dans la réparation de <strong>camions lourds, d'équipements lourds et de remorques</strong>.</span>
   </p>
-  
   <div class="pitch-wrapper">
     <div class="pitch-text">
       <span class="lang-en">DOWNTIME ENDS HERE.</span>
       <span class="lang-fr">LES TEMPS D'ARRÊT SE TERMINENT ICI.</span>
     </div>
   </div>
-  
   <div class="service-bullet">
     <span class="check"><i class="fa-regular fa-check"></i></span>
     <div>
@@ -373,7 +342,6 @@
       <span class="lang-fr">Couvrant Montréal, Laval, Rive-Sud et plus</span>
     </div>
   </div>
-
   <div class="service-bullet">
     <span class="check"><i class="fa-regular fa-check"></i></span>
     <div>
@@ -385,7 +353,6 @@
       <span class="lang-fr">Techniciens diesel, inspecteurs PEP et spécialistes pré-SAAQ</span>
     </div>
   </div>
-
   <div class="service-bullet">
     <span class="check"><i class="fa-regular fa-check"></i></span>
     <div>
@@ -397,12 +364,10 @@
       <span class="lang-fr">Programmes préventifs pour maintenir vos opérations en mouvement</span>
     </div>
   </div>
-
   <a class="cta-button" href="tel:4509992221">
     <span class="lang-en">CONTACT US</span>
     <span class="lang-fr">CONTACTEZ-NOUS</span>
   </a>
-
 </section>
 
 <h2>
@@ -485,28 +450,16 @@
     <span class="lang-fr">À Propos de Nous</span>
   </h2>
   <p>
-    <span class="lang-en">
-      Since 2024, <strong>AD Diesel</strong> has been the trusted name in mobile heavy-duty repair across Québec. We proudly serve a wide range of clients — from large trucking brokers and logistics firms to construction contractors and equipment operators.
-    </span>
-    <span class="lang-fr">
-      Depuis 2024, <strong>AD Diesel</strong> est le nom de confiance pour la réparation mobile d'équipements lourds à travers le Québec. Nous servons fièrement une large clientèle — des grands courtiers en transport et firmes de logistique aux entrepreneurs en construction et opérateurs d'équipement.
-    </span>
+    <span class="lang-en"> Since 2024, <strong>AD Diesel</strong> has been the trusted name in mobile heavy-duty repair across Québec. We proudly serve a wide range of clients — from large trucking brokers and logistics firms to construction contractors and equipment operators. </span>
+    <span class="lang-fr"> Depuis 2024, <strong>AD Diesel</strong> est le nom de confiance pour la réparation mobile d'équipements lourds à travers le Québec. Nous servons fièrement une large clientèle — des grands courtiers en transport et firmes de logistique aux entrepreneurs en construction et opérateurs d'équipement. </span>
   </p>
   <p>
-    <span class="lang-en">
-      Our mission is simple: <strong>minimize downtime and keep your fleet moving</strong>. With a team of certified diesel mechanics, PEP inspectors, and pre-SAAQ specialists, we deliver fast, on-site service 24/7 — no matter where the job takes you.
-    </span>
-    <span class="lang-fr">
-      Notre mission est simple : <strong>minimiser les temps d'arrêt et maintenir votre flotte en mouvement</strong>. Avec une équipe de mécaniciens diesel certifiés, d'inspecteurs PEP et de spécialistes pré-SAAQ, nous offrons un service rapide sur place 24/7 — peu importe où le travail vous mène.
-    </span>
+    <span class="lang-en"> Our mission is simple: <strong>minimize downtime and keep your fleet moving</strong>. With a team of certified diesel mechanics, PEP inspectors, and pre-SAAQ specialists, we deliver fast, on-site service 24/7 — no matter where the job takes you. </span>
+    <span class="lang-fr"> Notre mission est simple : <strong>minimiser les temps d'arrêt et maintenir votre flotte en mouvement</strong>. Avec une équipe de mécaniciens diesel certifiés, d'inspecteurs PEP et de spécialistes pré-SAAQ, nous offrons un service rapide sur place 24/7 — peu importe où le travail vous mène. </span>
   </p>
   <p>
-    <span class="lang-en">
-      Whether you're managing long-haul trucks, trailers, or heavy machinery on remote sites, we bring diagnostics, maintenance, and repairs directly to you. Backed by years of industry experience and a commitment to excellence, AD Diesel is your go-to partner for mobile fleet support that works as hard as you do.
-    </span>
-    <span class="lang-fr">
-      Que vous gériez des camions long-courriers, des remorques ou de la machinerie lourde sur des sites éloignés, nous apportons les diagnostics, l'entretien et les réparations directement à vous. Forts de plusieurs années d'expérience dans l'industrie et d'un engagement envers l'excellence, AD Diesel est votre partenaire de choix pour un soutien de flotte mobile qui travaille aussi fort que vous.
-    </span>
+    <span class="lang-en"> Whether you're managing long-haul trucks, trailers, or heavy machinery on remote sites, we bring diagnostics, maintenance, and repairs directly to you. Backed by years of industry experience and a commitment to excellence, AD Diesel is your go-to partner for mobile fleet support that works as hard as you do. </span>
+    <span class="lang-fr"> Que vous gériez des camions long-courriers, des remorques ou de la machinerie lourde sur des sites éloignés, nous apportons les diagnostics, l'entretien et les réparations directement à vous. Forts de plusieurs années d'expérience dans l'industrie et d'un engagement envers l'excellence, AD Diesel est votre partenaire de choix pour un soutien de flotte mobile qui travaille aussi fort que vous. </span>
   </p>
 </section>
 
@@ -524,9 +477,7 @@
       <span class="lang-en">Email:</span>
       <span class="lang-fr">Courriel :</span>
     </strong>&nbsp;
-    <a href="mailto:ad.diesel@mail.com?subject=Service%20Request&body=Hello%20AD%20Diesel,">
-      ad.diesel@mail.com
-    </a>
+    <a href="mailto:ad.diesel@mail.com?subject=Service%20Request&body=Hello%20AD%20Diesel,"> ad.diesel@mail.com </a>
   </p>
 </section>
 
@@ -540,23 +491,20 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     
-    // --- Language Toggle Logic ---
+    // --- Language Toggle Logic (Robust Method) ---
     const langLink = document.getElementById('langLink');
-    let currentLang = 'en'; // Default language
+    let currentLang = 'en';
 
     function setLanguage(lang) {
-        const elementsEn = document.querySelectorAll('.lang-en');
-        const elementsFr = document.querySelectorAll('.lang-fr');
-
         if (lang === 'fr') {
-            elementsEn.forEach(el => el.style.display = 'none');
-            elementsFr.forEach(el => el.style.display = ''); // Reset to default display
+            document.body.classList.remove('lang-en-active');
+            document.body.classList.add('lang-fr-active');
             langLink.textContent = 'EN';
             document.documentElement.lang = 'fr';
             currentLang = 'fr';
         } else { // lang === 'en'
-            elementsFr.forEach(el => el.style.display = 'none');
-            elementsEn.forEach(el => el.style.display = ''); // Reset to default display
+            document.body.classList.remove('lang-fr-active');
+            document.body.classList.add('lang-en-active');
             langLink.textContent = 'FR';
             document.documentElement.lang = 'en';
             currentLang = 'en';
@@ -574,14 +522,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (userLang.startsWith('fr')) {
         setLanguage('fr');
     } else {
-        setLanguage('en'); // Default to English
+        setLanguage('en'); 
     }
 
     // --- Carousel Logic ---
     const carousel = document.getElementById('carousel');
     if (carousel) {
         const cards = carousel.querySelectorAll('.service-card');
-        const scrollStep = 320; // Width of a card + gap
+        const scrollStep = 320; 
         const scrollDelay = 4000;
         let interval;
 
@@ -593,9 +541,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function startCarousel() {
-            stopCarousel(); // Prevent multiple intervals
+            stopCarousel();
             interval = setInterval(() => {
-                // If scrolled to the end (or close to it), loop back to the start
                 if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5) {
                     centerFirstCard();
                 } else {
@@ -608,13 +555,11 @@ document.addEventListener('DOMContentLoaded', function() {
             clearInterval(interval);
         }
 
-        // Pause scrolling on mouse hover or touch
         carousel.addEventListener('mouseenter', stopCarousel);
         carousel.addEventListener('mouseleave', startCarousel);
         carousel.addEventListener('touchstart', stopCarousel);
         carousel.addEventListener('touchend', startCarousel);
 
-        // Initial setup on window load
         centerFirstCard();
         startCarousel();
     }
