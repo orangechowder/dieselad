@@ -83,19 +83,20 @@
       background-color: #000;
       color: #e10202;
       border-radius: 999px;
-      padding: 0.5rem 1.2rem;
+      padding: 0.6rem 1.4rem;
       display: inline-block;
-      font-size: 1rem;
-      font-weight: 600;
+      font-size: 1.05rem;
+      font-weight: 700;
       transition: all 0.3s ease;
       border: 2px solid #e10202;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
+      box-shadow: 0 4px 12px rgba(225, 2, 2, 0.2);
     }
 
     .phone-button:hover {
       background: linear-gradient(135deg, #e10202 0%, #d60000 100%);
       color: #fff;
-      box-shadow: 0 6px 20px rgba(225, 2, 2, 0.4);
+      box-shadow: 0 8px 24px rgba(225, 2, 2, 0.5);
       transform: translateY(-2px);
     }
     .top-controls {
@@ -141,6 +142,21 @@
       margin-top: 55px;
       overflow: hidden;
       background: linear-gradient(135deg, #000 0%, rgba(225,2,2,0.1) 100%);
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .top-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(225,2,2,0.15) 0%, rgba(0,0,0,0.4) 100%);
+      pointer-events: none;
     }
 
     .top-image img {
@@ -149,6 +165,8 @@
       display: block;
       object-fit: contain;
       animation: zoomInSlow 0.8s ease-out;
+      position: relative;
+      z-index: 1;
     }
 
     @keyframes zoomInSlow {
@@ -182,17 +200,18 @@
 
     .pitch-text {
       font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: white;
-      background: linear-gradient(135deg, rgba(225,2,2,0.1) 0%, rgba(225,2,2,0.2) 100%);
-      border: 2px solid #e10202;
-      padding: 1rem 2rem;
-      font-weight: bold;
+      background: linear-gradient(135deg, #e10202 0%, #d60000 100%);
+      border: 3px solid #fff;
+      padding: 1.5rem 2.5rem;
+      font-weight: 900;
       text-transform: uppercase;
       text-align: center;
-      box-shadow: 0 8px 24px rgba(225, 2, 2, 0.25), inset 0 1px 0 rgba(255,255,255,0.1);
-      border-radius: 8px;
-      letter-spacing: 2px;
+      box-shadow: 0 12px 40px rgba(225, 2, 2, 0.4);
+      border-radius: 12px;
+      letter-spacing: 3px;
+      animation: slideDown 0.7s ease-out;
     }
     
     .about-section {
@@ -210,15 +229,17 @@
     }
 
     .about-section h1 {
-      font-size: 2.2rem;
+      font-size: 3rem;
       color: #fff;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      line-height: 1.2;
       background: linear-gradient(90deg, #fff 0%, #e10202 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
 
     .about-section p {
@@ -287,23 +308,40 @@
       display: inline-block;
       background: linear-gradient(135deg, #e10202 0%, #c40000 100%);
       color: white;
-      font-weight: 700;
-      padding: 1.1rem 2.5rem;
+      font-weight: 900;
+      padding: 1.3rem 3.5rem;
       border-radius: 50px;
       text-decoration: none;
       margin-top: 2rem;
-      font-size: 1.05rem;
+      font-size: 1.2rem;
       transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      box-shadow: 0 8px 24px rgba(225, 2, 2, 0.3);
-      border: none;
+      box-shadow: 0 12px 40px rgba(225, 2, 2, 0.4);
+      border: 2px solid #ff5555;
       cursor: pointer;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
       text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.2);
+      transition: left 0.3s ease;
+    }
+
+    .cta-button:hover::before {
+      left: 100%;
     }
 
     .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 36px rgba(225, 2, 2, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 50px rgba(225, 2, 2, 0.6);
     }
 
     .cta-button:active {
@@ -326,11 +364,12 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        font-size: 2rem;
-        font-weight: 700;
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        letter-spacing: 1px;
+        font-size: 2.8rem;
+        font-weight: 900;
+        margin-top: 4rem;
+        margin-bottom: 3rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
       }
 
     .carousel-container {
@@ -421,14 +460,16 @@
 
     .about-extra h2 {
       color: #fff;
-      font-size: 2rem;
+      font-size: 2.8rem;
       text-align: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       background: linear-gradient(90deg, #e10202 0%, #ff5555 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      font-weight: 700;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
       .info h3 {
@@ -804,5 +845,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 </body>
-
 </html>
