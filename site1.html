@@ -72,7 +72,7 @@
     }
 
     .logo img {
-      height: 60px;
+      height: 85px;
       filter: drop-shadow(0 2px 8px rgba(225, 2, 2, 0.3));
       transition: transform 0.3s ease;
     }
@@ -83,7 +83,7 @@
 
     .logo-text {
       font-family: 'Orbitron', sans-serif;
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       font-weight: 900;
       background: linear-gradient(90deg, #fff 0%, #e10202 100%);
       -webkit-background-clip: text;
@@ -350,13 +350,14 @@
 
     /* ===== HERO IMAGE ===== */
     .hero-image {
-      background: url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop') center/cover;
+      background: url('https://images.unsplash.com/photo-1486262715619-67b519e0bbe5?w=1400&h=700&fit=crop&crop=faces') center/cover;
       height: 500px;
       margin: 3rem 0;
-      border-radius: 8px;
+      border-radius: 12px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.6);
       position: relative;
       overflow: hidden;
+      background-attachment: fixed;
     }
 
     .hero-image::after {
@@ -397,6 +398,8 @@
       color: #999;
       margin-bottom: 4rem;
       font-size: 1.1rem;
+      font-weight: 300;
+      letter-spacing: 0.5px;
     }
 
     .services-grid {
@@ -523,6 +526,11 @@
       font-weight: 300;
     }
 
+    .why-us-text p:first-of-type {
+      font-size: 1.05rem;
+      color: #d0d0d0;
+    }
+
     .feature-list {
       list-style: none;
       padding: 0;
@@ -547,11 +555,22 @@
     }
 
     .why-us-image {
-      background: url('https://images.unsplash.com/photo-1487881594351-7305dd0862a9?w=1200&h=800&fit=crop') center/cover;
+      background: url('https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=1200&h=800&fit=crop') center/cover;
       height: 400px;
-      border-radius: 8px;
+      border-radius: 12px;
       box-shadow: 0 20px 60px rgba(225, 2, 2, 0.2);
       position: relative;
+      overflow: hidden;
+    }
+
+    .why-us-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(225,2,2,0.1) 0%, transparent 100%);
     }
 
     /* ===== STATS SECTION ===== */
@@ -776,11 +795,11 @@
       }
 
       .logo-text {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
       }
 
       .logo img {
-        height: 45px;
+        height: 60px;
       }
 
       .nav-right {
@@ -804,6 +823,86 @@
       .hero h1 {
         font-size: clamp(1.3rem, 4vw, 2.2rem);
       }
+
+      .case-study-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-image {
+        height: 300px;
+      }
+    }
+
+    /* ===== CASE STUDIES / PORTFOLIO ===== */
+    .case-studies {
+      padding: 6rem 2rem;
+      background: linear-gradient(180deg, #0a0e27 0%, #1a1f3a 100%);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .case-study-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .case-item {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: fadeInUp 0.6s ease-out backwards;
+    }
+
+    .case-item:nth-child(1) { animation-delay: 0.1s; }
+    .case-item:nth-child(2) { animation-delay: 0.2s; }
+    .case-item:nth-child(3) { animation-delay: 0.3s; }
+    .case-item:nth-child(4) { animation-delay: 0.4s; }
+
+    .case-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 70px rgba(225, 2, 2, 0.2);
+    }
+
+    .case-image {
+      background-size: cover;
+      background-position: center;
+      height: 350px;
+      position: relative;
+    }
+
+    .case-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.7) 100%);
+    }
+
+    .case-content {
+      background: linear-gradient(135deg, rgba(30,40,70,0.95) 0%, rgba(20,25,50,0.95) 100%);
+      padding: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .case-content h4 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4rem;
+      color: #e10202;
+      margin: 0 0 0.5rem 0;
+      font-weight: 800;
+    }
+
+    .case-content p {
+      color: #b0b0b0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0;
     }
   </style>
 </head>
@@ -1011,6 +1110,48 @@
     </div>
 
     <div class="why-us-image"></div>
+  </div>
+</section>
+
+<!-- CASE STUDIES SECTION -->
+<section class="case-studies">
+  <h2 class="section-title">
+    <span class="lang-en">Recent Projects</span>
+    <span class="lang-fr">Projets Récents</span>
+  </h2>
+
+  <div class="case-study-grid">
+    <div class="case-item">
+      <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop');"></div>
+      <div class="case-content">
+        <h4><span class="lang-en">Fleet Maintenance</span><span class="lang-fr">Entretien de Flotte</span></h4>
+        <p><span class="lang-en">Serviced 15-truck fleet for major logistics company. Complete diagnostics and preventive maintenance completed on schedule.</span><span class="lang-fr">Entretien d'une flotte de 15 camions pour grande entreprise logistique.</span></p>
+      </div>
+    </div>
+
+    <div class="case-item">
+      <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1486262715619-67b519e0bbe5?w=600&h=400&fit=crop');"></div>
+      <div class="case-content">
+        <h4><span class="lang-en">Emergency Roadside</span><span class="lang-fr">Assistance d'Urgence</span></h4>
+        <p><span class="lang-en">24-hour response: Recovered broken-down semi on highway. Engine diagnostics, repair completed in field.</span><span class="lang-fr">Intervention d'urgence 24h. Réparation moteur complétée sur place.</span></p>
+      </div>
+    </div>
+
+    <div class="case-item">
+      <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=600&h=400&fit=crop');"></div>
+      <div class="case-content">
+        <h4><span class="lang-en">Heavy Equipment Repair</span><span class="lang-fr">Équipements Lourds</span></h4>
+        <p><span class="lang-en">Excavator hydraulic system overhaul. Complex repair completed ahead of deadline, client saved $50K downtime.</span><span class="lang-fr">Réparation système hydraulique excavatrice. Travaux complétés avant la date prévue.</span></p>
+      </div>
+    </div>
+
+    <div class="case-item">
+      <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1517457373614-b7152f800fd1?w=600&h=400&fit=crop');"></div>
+      <div class="case-content">
+        <h4><span class="lang-en">Trailer Refurbishment</span><span class="lang-fr">Réfection de Remorque</span></h4>
+        <p><span class="lang-en">Complete brake system replacement on tandem trailer. Safety inspection passed with flying colors.</span><span class="lang-fr">Remplacement complet système de freins. Inspection de sécurité réussie.</span></p>
+      </div>
+    </div>
   </div>
 </section>
 
