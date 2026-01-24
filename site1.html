@@ -79,12 +79,12 @@
     }
 
     .logo img {
-      height: 80px;
+      height: 90px;
       width: auto;
     }
 
     .logo-text {
-      font-size: 18px;
+      font-size: 24px;
       font-weight: 700;
       letter-spacing: 1px;
       color: #1a1a1a;
@@ -130,6 +130,16 @@
       font-size: 13px;
       font-weight: 600;
       color: #666;
+    }
+
+    .cta-btn span {
+      display: inline;
+    }
+
+    @media (max-width: 768px) {
+      .cta-btn span {
+        display: none;
+      }
     }
 
     /* ===== HERO ===== */
@@ -621,7 +631,7 @@
       <span class="logo-text">RPM <span class="accent">DIESEL</span></span>
     </a>
     <div class="header-right">
-      <a href="tel:4509992221" class="cta-btn">
+      <a href="tel:4509992221" class="cta-btn" title="Call us">
         <i class="fas fa-phone"></i>
         <span>450 999-2221</span>
       </a>
@@ -637,8 +647,8 @@
 <section class="hero">
   <div class="hero-text">
     <h1>
-      <span class="lang-en">Heavy Equipment Repair <span class="highlight">Zero Downtime</span></span>
-      <span class="lang-fr">Réparation d'Équipements Lourds <span class="highlight">Aucun Temps d'Arrêt</span></span>
+      <span class="lang-en">Heavy Equipment Repair <span class="highlight">Done Right</span></span>
+      <span class="lang-fr">Réparation d'Équipements Lourds <span class="highlight">Bien Faite</span></span>
     </h1>
     <p>
       <span class="lang-en">24/7 mobile and workshop repair services for diesel equipment, trucks, and machinery. When downtime costs money, we deliver results.</span>
@@ -849,4 +859,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </body>
 </html>
-
