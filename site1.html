@@ -831,6 +831,14 @@
       .case-image {
         height: 300px;
       }
+
+      .credentials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .admin-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ===== CASE STUDIES / PORTFOLIO ===== */
@@ -903,6 +911,191 @@
       font-size: 0.95rem;
       line-height: 1.7;
       margin: 0;
+    }
+
+    /* ===== CREDENTIALS SECTION ===== */
+    .credentials {
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, #0a0e27 0%, #1a1f3a 100%);
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .credential-badge {
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(225, 2, 2, 0.08) 0%, rgba(225, 2, 2, 0.02) 100%);
+      border: 2px solid #e10202;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.6s ease-out backwards;
+    }
+
+    .credential-badge:nth-child(1) { animation-delay: 0.1s; }
+    .credential-badge:nth-child(2) { animation-delay: 0.2s; }
+    .credential-badge:nth-child(3) { animation-delay: 0.3s; }
+    .credential-badge:nth-child(4) { animation-delay: 0.4s; }
+
+    .credential-badge:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(225, 2, 2, 0.25);
+      background: linear-gradient(135deg, rgba(225, 2, 2, 0.15) 0%, rgba(225, 2, 2, 0.08) 100%);
+    }
+
+    .credential-badge i {
+      font-size: 2.5rem;
+      color: #e10202;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .credential-badge h4 {
+      color: #fff;
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+      font-weight: 700;
+    }
+
+    .credential-badge p {
+      color: #999;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    /* ===== CAREERS SECTION ===== */
+    .careers {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, rgba(225, 2, 2, 0.1) 0%, rgba(225, 2, 2, 0.05) 100%);
+      border-top: 2px solid #e10202;
+      border-bottom: 2px solid #e10202;
+      margin: 3rem 0;
+      max-width: 100%;
+    }
+
+    .careers-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .careers h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #fff 0%, #e10202 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-transform: uppercase;
+    }
+
+    .careers p {
+      color: #d0d0d0;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .careers .cta-primary {
+      margin-top: 1.5rem;
+    }
+
+    /* ===== ADMIN INFO (FOOTER) ===== */
+    .admin-info {
+      background: linear-gradient(180deg, #0a0e27 0%, #1a1f3a 100%);
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 2px solid #e10202;
+    }
+
+    .admin-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .admin-section h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: #e10202;
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .admin-section p {
+      color: #b0b0b0;
+      margin-bottom: 1rem;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .admin-section a {
+      color: #e10202;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .admin-section a:hover {
+      color: #ff9999;
+    }
+
+    .hours-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(225, 2, 2, 0.1);
+      color: #b0b0b0;
+      font-size: 0.95rem;
+    }
+
+    .hours-list li strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, #e10202 0%, #c40000 100%);
+      color: white;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(225, 2, 2, 0.3);
     }
   </style>
 </head>
@@ -1113,6 +1306,37 @@
   </div>
 </section>
 
+<!-- CREDENTIALS SECTION -->
+<section class="credentials">
+  <h2 class="section-title">
+    <span class="lang-en">Certified & Credentialed</span>
+    <span class="lang-fr">Certifiés & Accrédités</span>
+  </h2>
+
+  <div class="credentials-grid">
+    <div class="credential-badge">
+      <i class="fas fa-certificate"></i>
+      <h4><span class="lang-en">PEP Inspector</span><span class="lang-fr">Inspecteur PEP</span></h4>
+      <p><span class="lang-en">Province Certified</span><span class="lang-fr">Certifié Provincial</span></p>
+    </div>
+    <div class="credential-badge">
+      <i class="fas fa-tools"></i>
+      <h4><span class="lang-en">ASE Certified</span><span class="lang-fr">Certifié ASE</span></h4>
+      <p><span class="lang-en">Heavy Diesel Tech</span><span class="lang-fr">Tech Diesel Lourd</span></p>
+    </div>
+    <div class="credential-badge">
+      <i class="fas fa-shield-alt"></i>
+      <h4><span class="lang-en">SAAQ Approved</span><span class="lang-fr">Approuvé SAAQ</span></h4>
+      <p><span class="lang-en">Vehicle Inspection</span><span class="lang-fr">Inspection Véhicule</span></p>
+    </div>
+    <div class="credential-badge">
+      <i class="fas fa-check-circle"></i>
+      <h4><span class="lang-en">ISO 9001</span><span class="lang-fr">ISO 9001</span></h4>
+      <p><span class="lang-en">Quality Assurance</span><span class="lang-fr">Assurance Qualité</span></p>
+    </div>
+  </div>
+</section>
+
 <!-- CASE STUDIES SECTION -->
 <section class="case-studies">
   <h2 class="section-title">
@@ -1155,6 +1379,24 @@
   </div>
 </section>
 
+<!-- CAREERS SECTION -->
+<section class="careers">
+  <div class="careers-content">
+    <h2>
+      <span class="lang-en">Join Our Team</span>
+      <span class="lang-fr">Joignez Notre Équipe</span>
+    </h2>
+    <p>
+      <span class="lang-en">We're always looking for certified diesel technicians and skilled mechanics. Be part of a growing team that values expertise, safety, and customer satisfaction.</span>
+      <span class="lang-fr">Nous recherchons toujours des techniciens diesel certifiés et des mécaniciens compétents. Faites partie d'une équipe en croissance qui valorise l'expertise, la sécurité et la satisfaction client.</span>
+    </p>
+    <a href="mailto:careers@rpmdiesel.ca" class="cta-primary">
+      <span class="lang-en">View Open Positions</span>
+      <span class="lang-fr">Voir les Postes Ouverts</span>
+    </a>
+  </div>
+</section>
+
 <!-- CONTACT SECTION -->
 <section class="contact">
   <h2>
@@ -1188,19 +1430,85 @@
   </a>
 </section>
 
+<!-- ADMIN INFO SECTION -->
+<section class="admin-info">
+  <div class="admin-grid">
+    <div class="admin-section">
+      <h3>
+        <span class="lang-en">Administrative Hours</span>
+        <span class="lang-fr">Heures Administratives</span>
+      </h3>
+      <ul class="hours-list">
+        <li>
+          <strong><span class="lang-en">Monday - Friday</span><span class="lang-fr">Lundi - Vendredi</span>:</strong>
+          <span>8:00 AM - 5:00 PM</span>
+        </li>
+        <li>
+          <strong><span class="lang-en">Saturday</span><span class="lang-fr">Samedi</span>:</strong>
+          <span>9:00 AM - 1:00 PM</span>
+        </li>
+        <li>
+          <strong><span class="lang-en">Sunday</span><span class="lang-fr">Dimanche</span>:</strong>
+          <span><span class="lang-en">Closed</span><span class="lang-fr">Fermé</span></span>
+        </li>
+      </ul>
+      <p style="margin-top: 1.5rem; color: #e10202; font-weight: 600;">
+        <span class="lang-en">24/7 Emergency Service Available</span>
+        <span class="lang-fr">Service d'Urgence 24/7 Disponible</span>
+      </p>
+    </div>
+
+    <div class="admin-section">
+      <h3>
+        <span class="lang-en">Quick Contact</span>
+        <span class="lang-fr">Contact Rapide</span>
+      </h3>
+      <p>
+        <strong><span class="lang-en">General Inquiry</span><span class="lang-fr">Demande Générale</span>:</strong><br>
+        <a href="tel:4509992221">450-999-2221</a>
+      </p>
+      <p>
+        <strong><span class="lang-en">Emergency Dispatch</span><span class="lang-fr">Urgence</span>:</strong><br>
+        <a href="tel:4509992221">450-999-2221</a>
+      </p>
+      <p>
+        <strong><span class="lang-en">Email</span><span class="lang-fr">Courriel</span>:</strong><br>
+        <a href="mailto:service@rpmdiesel.ca">service@rpmdiesel.ca</a>
+      </p>
+    </div>
+
+    <div class="admin-section">
+      <h3>
+        <span class="lang-en">Follow Us</span>
+        <span class="lang-fr">Suivez-Nous</span>
+      </h3>
+      <p>
+        <span class="lang-en">Stay updated on our latest projects and industry insights</span>
+        <span class="lang-fr">Restez à jour sur nos derniers projets et perspectives</span>
+      </p>
+      <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank" title="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com" target="_blank" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.google.com" target="_blank" title="Google">
+          <i class="fab fa-google"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
-  <div style="margin-bottom: 1rem;">
-    <a href="https://www.google.com" target="_blank" style="margin: 0 1rem;">
-      <i class="fab fa-google"></i> <span class="lang-en">Google Reviews</span><span class="lang-fr">Avis Google</span>
-    </a>
-    <a href="https://www.facebook.com" target="_blank" style="margin: 0 1rem;">
-      <i class="fab fa-facebook"></i> <span class="lang-en">Facebook</span><span class="lang-fr">Facebook</span>
-    </a>
-  </div>
   <p>
-    <span class="lang-en">&copy; 2025 RPM Diesel. All rights reserved.</span>
-    <span class="lang-fr">&copy; 2025 RPM Diesel. Tous droits réservés.</span>
+    <span class="lang-en">&copy; 2025 RPM Diesel Heavy Equipment Repair. All rights reserved. | Rigaud, QC</span>
+    <span class="lang-fr">&copy; 2025 RPM Diesel Réparation d'Équipements Lourds. Tous droits réservés. | Rigaud, QC</span>
   </p>
 </footer>
 
